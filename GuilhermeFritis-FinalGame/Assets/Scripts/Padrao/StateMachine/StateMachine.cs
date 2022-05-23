@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public enum State
 {
-    MENU,
-    PLAYING,
-    RESETING_POSITION,
-    END_GAME
+    NONE
 }
 
 public class StateMachine : MonoBehaviour
@@ -27,20 +25,12 @@ public class StateMachine : MonoBehaviour
         }
 
         statesDictionary = new Dictionary<State, StateBase>();
-        statesDictionary.Add(State.MENU, new StateBase());
-        statesDictionary.Add(State.PLAYING, new StatePlaying());
-        statesDictionary.Add(State.RESETING_POSITION, new StateBase());
-        statesDictionary.Add(State.END_GAME, new StateEndGame());
-    }
+        statesDictionary.Add(State.NONE, new StateBase());
+    }    
 
-    private void StartGame()
-    {
-        SwitchState(State.MENU);
-    }
+    [Button]
+    public void StartGame(){
 
-    public void ResetPosition()
-    {
-        SwitchState(State.RESETING_POSITION);
     }
 
     public void SwitchState(State state)
