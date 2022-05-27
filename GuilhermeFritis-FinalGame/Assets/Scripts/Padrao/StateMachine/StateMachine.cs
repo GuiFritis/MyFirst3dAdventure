@@ -1,55 +1,52 @@
+using System.Security.AccessControl;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public enum State
-{
-    NONE
-}
-
-public class StateMachine : MonoBehaviour
+public class StateMachine<T> where T : System.Enum
 {
 
-    public static StateMachine Instance;
+    public Dictionary<T, StateBase> statesDictionary;
 
-    public Dictionary<State, StateBase> statesDictionary;
+    private StateBase _currentState;
+    public float timeToStartGame = 1f;
 
-    public StateBase currentState;
+    public StateBase CurrentState{
+        get {return _currentState;}
+    }
 
-    private void Awake()
+    public void Init(){
+        statesDictionary = new Dictionary<T, StateBase>();
+    }
+
+    public void RegisterStates(T typeEnum, StateBase state)
     {
-        if(Instance == null)
-        {
-            Instance = this;
-        }
-
-        statesDictionary = new Dictionary<State, StateBase>();
-        statesDictionary.Add(State.NONE, new StateBase());
+        statesDictionary.Add(typeEnum, state);
     }    
 
     [Button]
     public void StartGame(){
-
+        
     }
 
-    public void SwitchState(State state)
+    public void SwitchState(T state)
     {
-        if(currentState != null)
+        if(_currentState != null)
         {
-            currentState.OnStateExit();
+            _currentState.OnStateExit();
         }
 
-        currentState = statesDictionary[state];
+        _currentState = statesDictionary[state];
 
-        currentState.OnStateEnter();
+        _currentState.OnStateEnter();
     }
 
     private void Update()
     {
-        if(currentState != null)
+        if(_currentState != null)
         {
-            currentState.OnStateStay();
+            _currentState.OnStateStay();
         }
     }
 
