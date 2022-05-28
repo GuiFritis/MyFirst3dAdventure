@@ -9174,6 +9174,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8043139984699745673, guid: 6a85956ddea0a304da62a369edd2c2fa, type: 3}
   m_PrefabInstance: {fileID: 1809586846}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1814513469 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7193805671317595757, guid: 89e20167823a30d459856414377997d1, type: 3}
+  m_PrefabInstance: {fileID: 1755247079}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1815858058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10543,8 +10548,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 2071947523}
+  animator: {fileID: 1814513469}
   speed: 8
   jumpForce: 20
+  animWalk: Walking
   groundLayers:
     serializedVersion: 2
     m_Bits: 0

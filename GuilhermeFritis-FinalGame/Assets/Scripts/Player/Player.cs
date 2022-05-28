@@ -16,12 +16,18 @@ public class Player : MonoBehaviour
 
     [Foldout("Components")]
     public Rigidbody rigidbody;
+    [Foldout("Components")]
+    public Animator animator;
 
     [Foldout("Movement")]
     public float speed = 1f;
+    [Foldout("Movement")]
+    public float speedMultiplier = 1.5f;
+    [Foldout("Movement")]
     public float jumpForce = 20f;
+    [Foldout("Movement")]
+    public string animWalk = "WALKING";
 
-    [Space]
     public LayerMask groundLayers;
 
     public StateMachine<PlayerStates> stateMachine;
@@ -33,6 +39,7 @@ public class Player : MonoBehaviour
     void OnValidate()
     {
         rigidbody = gameObject.GetComponent<Rigidbody>();
+        animator = gameObject.GetComponentInChildren<Animator>();
     }
 
     void Start()
@@ -80,7 +87,7 @@ public class Player : MonoBehaviour
 
         if(vectorMove.magnitude > 0){
             if(Input.GetKey(KeyCode.LeftShift)){
-                velocity = speed * 1.6f;
+                velocity = speed * speedMultiplier;
                 stateMachine.SwitchState(PlayerStates.RUNNNING);
             } else {
                 velocity = speed;
@@ -93,6 +100,7 @@ public class Player : MonoBehaviour
 
     public void Walk(){
         rigidbody.velocity = new Vector3(vectorMove.x * velocity, rigidbody.velocity.y, vectorMove.y * velocity);
+        animator.SetBool(animWalk, true);
     }
 
     private void Jump(){
