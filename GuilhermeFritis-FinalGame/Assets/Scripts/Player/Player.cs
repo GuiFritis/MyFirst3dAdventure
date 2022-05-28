@@ -49,7 +49,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        Move();
+        CheckMove();
+        CheckJump();
     }
 
     public void Init(){
@@ -66,7 +67,7 @@ public class Player : MonoBehaviour
         velocity = speed;
     }
 
-    private void Move(){
+    private void CheckMove(){
         if(Input.GetKeyDown(KeyCode.W)){
             vectorMove.y = 1;
         } else if(Input.GetKeyDown(KeyCode.S)){
@@ -86,36 +87,42 @@ public class Player : MonoBehaviour
         }
 
         if(vectorMove.magnitude > 0){
-            if(Input.GetKey(KeyCode.LeftShift)){
+            if(Input.GetKey(KeyCode.LeftShift) && grounded){
                 velocity = speed * speedMultiplier;
                 stateMachine.SwitchState(PlayerStates.RUNNNING);
             } else {
                 velocity = speed;
-                stateMachine.SwitchState(PlayerStates.WALKING);
+                if(grounded){
+                    stateMachine.SwitchState(PlayerStates.WALKING);
+                }
             }
         } else {
             stateMachine.SwitchState(PlayerStates.IDLE);
         }
     }
 
-    public void Walk(){
+    public void Move(){
         rigidbody.velocity = new Vector3(vectorMove.x * velocity, rigidbody.velocity.y, vectorMove.y * velocity);
-        animator.SetBool(animWalk, true);
     }
 
-    private void Jump(){
+    private void CheckJump(){
         if(grounded){
             if(Input.GetKeyDown(KeyCode.Space)){
                 stateMachine.SwitchState(PlayerStates.JUMPING);
-                rigidbody.AddForce(Vector3.up * jumpForce);
             }
         }
     }
 
+    public void Jump(){        
+        rigidbody.AddForce(Vector3.up * jumpForce);
+        grounded = false;
+    }
+
     void OnCollisionEnter(Collision collision)
     {
-        if(((1<<collision.gameObject.layer) & groundLayers) != 0){
+        if((groundLayers & 1 << collision.gameObject.layer) == 1 << collision.gameObject.layer){
             grounded = true;
+            stateMachine.SwitchState(PlayerStates.IDLE);
         }
     }
 

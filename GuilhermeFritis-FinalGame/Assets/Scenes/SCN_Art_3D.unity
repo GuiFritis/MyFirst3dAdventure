@@ -10550,11 +10550,12 @@ MonoBehaviour:
   rigidbody: {fileID: 2071947523}
   animator: {fileID: 1814513469}
   speed: 8
-  jumpForce: 20
+  speedMultiplier: 1.5
+  jumpForce: 400
   animWalk: Walking
   groundLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
 --- !u!54 &2071947523
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10578,7 +10579,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071947521}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f87bd0a09daf32e4fa6c62f18d4cd749, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 1.63

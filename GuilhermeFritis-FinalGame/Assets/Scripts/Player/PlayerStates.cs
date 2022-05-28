@@ -15,7 +15,8 @@ public class PlayerWalking : StateBase{
 
     public override void OnStateEnter(object t = null)
     {
-        GameManager.Instance.player.Walk();
+        GameManager.Instance.player.Move();
+        GameManager.Instance.player.animator.SetBool(GameManager.Instance.player.animWalk, true);
     }
 
     public override void OnStateExit()
@@ -28,7 +29,8 @@ public class PlayerRunning : StateBase{
 
     public override void OnStateEnter(object t = null)
     {
-        GameManager.Instance.player.Walk(); 
+        GameManager.Instance.player.Move(); 
+        GameManager.Instance.player.animator.SetBool(GameManager.Instance.player.animWalk, true);
         GameManager.Instance.player.animator.speed = GameManager.Instance.player.speedMultiplier; 
     }
 
@@ -43,6 +45,6 @@ public class PlayerJumping : StateBase{
 
     public override void OnStateEnter(object t = null)
     {
-        
+        GameManager.Instance.player.Jump();
     }
 }
