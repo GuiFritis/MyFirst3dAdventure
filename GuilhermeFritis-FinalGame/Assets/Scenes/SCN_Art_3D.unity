@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundStone02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7703423336758522442, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -974,6 +978,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock06 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7336076974915261568, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
 --- !u!4 &160608416 stripped
@@ -1253,6 +1261,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock06 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 7336076974915261568, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
 --- !u!4 &269198647 stripped
@@ -1332,6 +1344,10 @@ PrefabInstance:
     - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_Name
       value: PFB_GroundStone02 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7703423336758522442, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_RootOrder
@@ -1439,6 +1455,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock06 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7336076974915261568, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
 --- !u!4 &330281170 stripped
@@ -1512,6 +1532,10 @@ PrefabInstance:
     - target: {fileID: 7336076974915261568, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
       propertyPath: m_Name
       value: PFB_GroundRock06 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336076974915261568, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
@@ -1641,6 +1665,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock06 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7336076974915261568, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
 --- !u!4 &366469219 stripped
@@ -1658,6 +1686,10 @@ PrefabInstance:
     - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_Name
       value: PFB_GroundStone02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7703423336758522442, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_RootOrder
@@ -2476,6 +2508,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock06 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7336076974915261568, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
 --- !u!4 &542414392 stripped
@@ -2493,6 +2529,10 @@ PrefabInstance:
     - target: {fileID: 2865259617798041249, guid: 3e26483ea67bad242b76de0971c6ac09, type: 3}
       propertyPath: m_Name
       value: PFB_GroundRock05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2865259617798041249, guid: 3e26483ea67bad242b76de0971c6ac09, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8391976400090115252, guid: 3e26483ea67bad242b76de0971c6ac09, type: 3}
       propertyPath: m_RootOrder
@@ -2630,6 +2670,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundStone02 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7703423336758522442, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -2692,6 +2736,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock04
       objectReference: {fileID: 0}
+    - target: {fileID: 496116524038095586, guid: de26322d17bf8df49a74450be4c0ebe5, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8711277840774425792, guid: de26322d17bf8df49a74450be4c0ebe5, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -2753,6 +2801,10 @@ PrefabInstance:
     - target: {fileID: 1127034899030090638, guid: 1b5a4b9e77515d54382a4649c0a457c6, type: 3}
       propertyPath: m_Name
       value: PFB_GroundRock03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127034899030090638, guid: 1b5a4b9e77515d54382a4649c0a457c6, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8508966238786895894, guid: 1b5a4b9e77515d54382a4649c0a457c6, type: 3}
       propertyPath: m_RootOrder
@@ -2963,6 +3015,10 @@ PrefabInstance:
     - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_Name
       value: PFB_GroundStone02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7703423336758522442, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_RootOrder
@@ -3220,6 +3276,10 @@ PrefabInstance:
     - target: {fileID: 496116524038095586, guid: de26322d17bf8df49a74450be4c0ebe5, type: 3}
       propertyPath: m_Name
       value: PFB_GroundRock04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 496116524038095586, guid: de26322d17bf8df49a74450be4c0ebe5, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8711277840774425792, guid: de26322d17bf8df49a74450be4c0ebe5, type: 3}
       propertyPath: m_RootOrder
@@ -3665,6 +3725,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundStone01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8283013025150268214, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
 --- !u!4 &813820709 stripped
@@ -4053,6 +4117,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock06 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7336076974915261568, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
 --- !u!4 &858445115 stripped
@@ -4238,6 +4306,10 @@ PrefabInstance:
     - target: {fileID: 6885129381473798860, guid: 435b8cb32aa668246ad07146724496fd, type: 3}
       propertyPath: m_Name
       value: PFB_GroundRock07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6885129381473798860, guid: 435b8cb32aa668246ad07146724496fd, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 435b8cb32aa668246ad07146724496fd, type: 3}
@@ -4823,6 +4895,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundStone01
       objectReference: {fileID: 0}
+    - target: {fileID: 8283013025150268214, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
 --- !u!4 &959748732 stripped
@@ -5035,6 +5111,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundStone02
       objectReference: {fileID: 0}
+    - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7703423336758522442, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -5096,6 +5176,10 @@ PrefabInstance:
     - target: {fileID: 1127034899030090638, guid: 1b5a4b9e77515d54382a4649c0a457c6, type: 3}
       propertyPath: m_Name
       value: PFB_GroundRock03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127034899030090638, guid: 1b5a4b9e77515d54382a4649c0a457c6, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8508966238786895894, guid: 1b5a4b9e77515d54382a4649c0a457c6, type: 3}
       propertyPath: m_RootOrder
@@ -5170,6 +5254,10 @@ PrefabInstance:
     - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_Name
       value: PFB_GroundStone02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7703423336758522442, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_RootOrder
@@ -5879,6 +5967,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock05 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2865259617798041249, guid: 3e26483ea67bad242b76de0971c6ac09, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8391976400090115252, guid: 3e26483ea67bad242b76de0971c6ac09, type: 3}
       propertyPath: m_RootOrder
       value: 54
@@ -5989,6 +6081,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock07 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6885129381473798860, guid: 435b8cb32aa668246ad07146724496fd, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 435b8cb32aa668246ad07146724496fd, type: 3}
 --- !u!4 &1250497094 stripped
@@ -6006,6 +6102,10 @@ PrefabInstance:
     - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_Name
       value: PFB_GroundStone02 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7703423336758522442, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_RootOrder
@@ -6548,6 +6648,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundStone01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8283013025150268214, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
 --- !u!4 &1366439616 stripped
@@ -6621,6 +6725,10 @@ PrefabInstance:
     - target: {fileID: 7336076974915261568, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
       propertyPath: m_Name
       value: PFB_GroundRock06 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336076974915261568, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
@@ -7295,6 +7403,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8778425298350167733, guid: bcab836cef6dc7c4f81683bcd8f114b3, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcab836cef6dc7c4f81683bcd8f114b3, type: 3}
 --- !u!4 &1485540196 stripped
@@ -7430,6 +7542,10 @@ PrefabInstance:
     - target: {fileID: 2865259617798041249, guid: 3e26483ea67bad242b76de0971c6ac09, type: 3}
       propertyPath: m_Name
       value: PFB_GroundRock05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2865259617798041249, guid: 3e26483ea67bad242b76de0971c6ac09, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8391976400090115252, guid: 3e26483ea67bad242b76de0971c6ac09, type: 3}
       propertyPath: m_RootOrder
@@ -7573,6 +7689,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock07 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6885129381473798860, guid: 435b8cb32aa668246ad07146724496fd, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 435b8cb32aa668246ad07146724496fd, type: 3}
 --- !u!4 &1531140406 stripped
@@ -7634,6 +7754,10 @@ PrefabInstance:
     - target: {fileID: 7336076974915261568, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
       propertyPath: m_Name
       value: PFB_GroundRock06 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7336076974915261568, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
@@ -7745,6 +7869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359bcc3efca60ea4eacc439dd644a17d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 2071947522}
 --- !u!4 &1589574286
 Transform:
   m_ObjectHideFlags: 0
@@ -7831,6 +7956,10 @@ PrefabInstance:
     - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_Name
       value: PFB_GroundStone02 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7703423336758522442, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_RootOrder
@@ -8148,6 +8277,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock06 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7336076974915261568, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
 --- !u!4 &1687589339 stripped
@@ -8210,6 +8343,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundStone01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8283013025150268214, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
 --- !u!4 &1706183974 stripped
@@ -8227,6 +8364,10 @@ PrefabInstance:
     - target: {fileID: 496116524038095586, guid: de26322d17bf8df49a74450be4c0ebe5, type: 3}
       propertyPath: m_Name
       value: PFB_GroundRock04 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 496116524038095586, guid: de26322d17bf8df49a74450be4c0ebe5, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8711277840774425792, guid: de26322d17bf8df49a74450be4c0ebe5, type: 3}
       propertyPath: m_RootOrder
@@ -8289,6 +8430,10 @@ PrefabInstance:
     - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_Name
       value: PFB_GroundStone02 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7703423336758522442, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_RootOrder
@@ -8750,6 +8895,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock06 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 7336076974915261568, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
 --- !u!4 &1769924178 stripped
@@ -8877,6 +9026,10 @@ PrefabInstance:
     - target: {fileID: 8283013025150268214, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
       propertyPath: m_Name
       value: PFB_GroundStone01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283013025150268214, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
@@ -9240,6 +9393,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock02
       objectReference: {fileID: 0}
+    - target: {fileID: 9029455361724083585, guid: 9ae4f6e37df103749a4621f21175d7ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ae4f6e37df103749a4621f21175d7ad, type: 3}
 --- !u!4 &1830192077 stripped
@@ -9313,6 +9470,10 @@ PrefabInstance:
     - target: {fileID: 8283013025150268214, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
       propertyPath: m_Name
       value: PFB_GroundStone01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283013025150268214, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
@@ -9416,6 +9577,10 @@ PrefabInstance:
     - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_Name
       value: PFB_GroundStone02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7703423336758522442, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_RootOrder
@@ -9597,6 +9762,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 9029455361724083585, guid: 9ae4f6e37df103749a4621f21175d7ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ae4f6e37df103749a4621f21175d7ad, type: 3}
 --- !u!4 &1889132733 stripped
@@ -9614,6 +9783,10 @@ PrefabInstance:
     - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_Name
       value: PFB_GroundStone02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7703423336758522442, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_RootOrder
@@ -9801,6 +9974,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock05 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2865259617798041249, guid: 3e26483ea67bad242b76de0971c6ac09, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8391976400090115252, guid: 3e26483ea67bad242b76de0971c6ac09, type: 3}
       propertyPath: m_RootOrder
       value: 43
@@ -9980,6 +10157,10 @@ PrefabInstance:
     - target: {fileID: 8283013025150268214, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
       propertyPath: m_Name
       value: PFB_GroundStone01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283013025150268214, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c68b193a7d9ef9044934974173df3e01, type: 3}
@@ -10201,6 +10382,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundStone02 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7703423336758522442, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -10340,7 +10525,7 @@ GameObject:
   - component: {fileID: 2071947522}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10359,6 +10544,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 2071947523}
   speed: 8
+  jumpForce: 20
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!54 &2071947523
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10595,6 +10784,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9029455361724083585, guid: 9ae4f6e37df103749a4621f21175d7ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ae4f6e37df103749a4621f21175d7ad, type: 3}
 --- !u!4 &2080209215 stripped
@@ -10612,6 +10805,10 @@ PrefabInstance:
     - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_Name
       value: PFB_GroundStone02 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5218832805809603787, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7703423336758522442, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
       propertyPath: m_RootOrder
@@ -11150,6 +11347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock02
       objectReference: {fileID: 0}
+    - target: {fileID: 9029455361724083585, guid: 9ae4f6e37df103749a4621f21175d7ad, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ae4f6e37df103749a4621f21175d7ad, type: 3}
 --- !u!4 &1675867810437934738 stripped
@@ -11212,6 +11413,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock01
       objectReference: {fileID: 0}
+    - target: {fileID: 8778425298350167733, guid: bcab836cef6dc7c4f81683bcd8f114b3, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcab836cef6dc7c4f81683bcd8f114b3, type: 3}
 --- !u!4 &1983683749611016585 stripped
@@ -11229,6 +11434,10 @@ PrefabInstance:
     - target: {fileID: 1127034899030090638, guid: 1b5a4b9e77515d54382a4649c0a457c6, type: 3}
       propertyPath: m_Name
       value: PFB_GroundRock03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1127034899030090638, guid: 1b5a4b9e77515d54382a4649c0a457c6, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8508966238786895894, guid: 1b5a4b9e77515d54382a4649c0a457c6, type: 3}
       propertyPath: m_RootOrder
@@ -11360,6 +11569,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock06
       objectReference: {fileID: 0}
+    - target: {fileID: 7336076974915261568, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5530aaddfe55de5489d8221bbcb7b6c9, type: 3}
 --- !u!4 &4016035185934692737 stripped
@@ -11458,6 +11671,10 @@ PrefabInstance:
     - target: {fileID: 496116524038095586, guid: de26322d17bf8df49a74450be4c0ebe5, type: 3}
       propertyPath: m_Name
       value: PFB_GroundRock04
+      objectReference: {fileID: 0}
+    - target: {fileID: 496116524038095586, guid: de26322d17bf8df49a74450be4c0ebe5, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8711277840774425792, guid: de26322d17bf8df49a74450be4c0ebe5, type: 3}
       propertyPath: m_RootOrder
@@ -11565,6 +11782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PFB_GroundRock07
       objectReference: {fileID: 0}
+    - target: {fileID: 6885129381473798860, guid: 435b8cb32aa668246ad07146724496fd, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 435b8cb32aa668246ad07146724496fd, type: 3}
 --- !u!4 &7426574995428428422 stripped
@@ -11582,6 +11803,10 @@ PrefabInstance:
     - target: {fileID: 2865259617798041249, guid: 3e26483ea67bad242b76de0971c6ac09, type: 3}
       propertyPath: m_Name
       value: PFB_GroundRock05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2865259617798041249, guid: 3e26483ea67bad242b76de0971c6ac09, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8391976400090115252, guid: 3e26483ea67bad242b76de0971c6ac09, type: 3}
       propertyPath: m_RootOrder
