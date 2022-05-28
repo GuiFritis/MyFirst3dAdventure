@@ -19,12 +19,17 @@ public class Player : MonoBehaviour
 
     [Foldout("Movement")]
     public float speed = 1f;
+    public float jumpForce = 20f;
+
+    [Space]
+    public LayerMask groundLayers;
 
     [HideInInspector]
     public StateMachine<PlayerStates> stateMachine;
 
     private Vector2 vectorMove = Vector2.zero;
     private float velocity = 1f;
+    private bool grounded = true;
 
     void OnValidate()
     {
@@ -45,10 +50,10 @@ public class Player : MonoBehaviour
         stateMachine = new StateMachine<PlayerStates>();
 
         stateMachine.Init();
-        stateMachine.statesDictionary.Add(PlayerStates.IDLE, new StateBase());
-        stateMachine.statesDictionary.Add(PlayerStates.WALKING, new StateBase());
-        stateMachine.statesDictionary.Add(PlayerStates.RUNNNING, new StateBase());
-        stateMachine.statesDictionary.Add(PlayerStates.JUMPING, new StateBase());
+        stateMachine.statesDictionary.Add(PlayerStates.IDLE, new PlayerIdle());
+        stateMachine.statesDictionary.Add(PlayerStates.WALKING, new PlayerWalking());
+        stateMachine.statesDictionary.Add(PlayerStates.RUNNNING, new PlayerRunning());
+        stateMachine.statesDictionary.Add(PlayerStates.JUMPING, new PlayerJumping());
 
         stateMachine.SwitchState(PlayerStates.IDLE);
 
@@ -82,11 +87,29 @@ public class Player : MonoBehaviour
                 velocity = speed;
                 stateMachine.SwitchState(PlayerStates.WALKING);
             }
-            rigidbody.velocity = new Vector3(vectorMove.x * velocity, rigidbody.velocity.y, vectorMove.y * velocity);
         } else {
-            stateMachine.SwitchState(PlayerStates.WALKING);
+            stateMachine.SwitchState(PlayerStates.IDLE);
         }
+    }
 
+    public void Walk(){
+        rigidbody.velocity = new Vector3(vectorMove.x * velocity, rigidbody.velocity.y, vectorMove.y * velocity);
+    }
+
+    private void Jump(){
+        if(grounded){
+            if(Input.GetKeyDown(KeyCode.Space)){
+                stateMachine.SwitchState(PlayerStates.JUMPING);
+                rigidbody.AddForce(Vector3.up * jumpForce);
+            }
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(((1<<collision.gameObject.layer) & groundLayers) != 0){
+            grounded = true;
+        }
     }
 
 }
