@@ -83,6 +83,8 @@ public class Player : MonoBehaviour
                 stateMachine.SwitchState(PlayerStates.WALKING);
             }
             rigidbody.velocity = new Vector3(vectorMove.x * velocity, rigidbody.velocity.y, vectorMove.y * velocity);
+        } else {
+            stateMachine.SwitchState(PlayerStates.WALKING);
         }
 
     }
