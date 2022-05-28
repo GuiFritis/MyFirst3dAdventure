@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
     [Space]
     public LayerMask groundLayers;
 
-    [HideInInspector]
     public StateMachine<PlayerStates> stateMachine;
 
     private Vector2 vectorMove = Vector2.zero;

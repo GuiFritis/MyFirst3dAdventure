@@ -15,13 +15,18 @@ public class GameManager : Singleton<GameManager>
     }
 
     public StateMachine<GameState> stateMachine;
+    public Player player;
 
     void Start()
     {
         Init();
     }
 
-    public void Init(){
+    public void Init(){        
+        if(player == null){
+            player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        }
+
         stateMachine = new StateMachine<GameState>();
         
         stateMachine.Init();
