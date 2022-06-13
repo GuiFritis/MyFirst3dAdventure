@@ -29,7 +29,6 @@ public class PlayerRunning : StateBase{
 
     public override void OnStateEnter(object t = null)
     {
-        GameManager.Instance.player.Move(); 
         GameManager.Instance.player.animator.SetBool(GameManager.Instance.player.animWalk, true);
         GameManager.Instance.player.animator.speed = GameManager.Instance.player.speedMultiplier; 
     }
