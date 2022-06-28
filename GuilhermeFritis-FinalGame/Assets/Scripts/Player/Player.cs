@@ -79,14 +79,14 @@ public class Player : MonoBehaviour
     }
 
     private void CheckMove(){
-        _directionVector.z = Input.GetAxis("Vertical") * speed;
+        _directionVector = Input.GetAxis("Vertical") * speed * transform.forward;
 
-        if(_directionVector.z > 0){
-            if(Input.GetKey(KeyCode.LeftShift) && _grounded){
-                _directionVector.z *= speedMultiplier;
+        if(_directionVector.magnitude > 0){
+            if(Input.GetKey(KeyCode.LeftShift) && charController.isGrounded){
+                _directionVector *= speedMultiplier;
                 stateMachine.SwitchState(PlayerStates.RUNNNING);
             } else {
-                if(_grounded){
+                if(charController.isGrounded){
                     stateMachine.SwitchState(PlayerStates.WALKING);
                 }
             }
@@ -96,27 +96,28 @@ public class Player : MonoBehaviour
     }
 
     public void Move(){
+        if(_directionVector.y < 0 && !charController.isGrounded){
+            animator.SetBool("Falling", true);
+        }
         charController.Move(_directionVector * Time.deltaTime);
     }
 
     private void CheckJump(){
-        if(_grounded){
+        if(charController.isGrounded){
+            animator.SetBool("Falling", false);
+            _vSpeed = 0f;
+            if(_directionVector.magnitude == 0){
+                stateMachine.SwitchState(PlayerStates.IDLE);
+            }
             if(Input.GetKeyDown(KeyCode.Space)){
                 stateMachine.SwitchState(PlayerStates.JUMPING);
             }
         }
     }
 
-    public void Jump(){        
-        _grounded = false;
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if((groundLayers & 1 << collision.gameObject.layer) == 1 << collision.gameObject.layer){
-            _grounded = true;
-            stateMachine.SwitchState(PlayerStates.IDLE);
-        }
+    public void Jump(){
+        _vSpeed = jumpForce;
+        animator.SetTrigger("Jump");
     }
 
 }

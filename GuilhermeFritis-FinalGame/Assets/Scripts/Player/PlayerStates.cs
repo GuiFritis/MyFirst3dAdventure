@@ -15,7 +15,6 @@ public class PlayerWalking : StateBase{
 
     public override void OnStateEnter(object t = null)
     {
-        GameManager.Instance.player.Move();
         GameManager.Instance.player.animator.SetBool(GameManager.Instance.player.animWalk, true);
     }
 
