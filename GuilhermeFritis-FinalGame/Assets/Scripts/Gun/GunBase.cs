@@ -10,19 +10,7 @@ public class GunBase : MonoBehaviour
     public KeyCode shootKey = KeyCode.Mouse0;
     private Coroutine _shootCoroutine;
 
-    void Update()
-    {
-        if(Input.GetKeyDown(shootKey))
-        {
-            _shootCoroutine =  StartCoroutine(nameof(StartShoot));
-        } 
-        else if(Input.GetKeyUp(shootKey) && _shootCoroutine != null)
-        {
-            StopCoroutine(_shootCoroutine);
-        }
-    }
-
-    IEnumerator StartShoot()
+    protected virtual IEnumerator ShootCoroutine()
     {     
         while(true)
         {
@@ -34,5 +22,18 @@ public class GunBase : MonoBehaviour
     public void Shoot()
     {
         var projectile = Instantiate(prefabProjectile, shootPos.position, shootPos.rotation);
+    }
+
+    public void StartShoot()
+    {
+        _shootCoroutine =  StartCoroutine(nameof(ShootCoroutine));
+    }
+
+    public void StopShoot()
+    {
+        if(_shootCoroutine != null)
+        {
+            StopCoroutine(_shootCoroutine);
+        }
     }
 }

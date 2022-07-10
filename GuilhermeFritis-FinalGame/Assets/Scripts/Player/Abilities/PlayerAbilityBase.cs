@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAbilityBase : MonoBehaviour
 {
     protected Player player;
+
+    protected Inputs inputs;
 
     void OnValidate()
     {
@@ -16,9 +19,26 @@ public class PlayerAbilityBase : MonoBehaviour
 
     void Start()
     {
+        inputs = new Inputs();
+
+        inputs.Enable();
+
         Init();
         OnValidate();
         AddListeners();
+    }
+
+    void OnEnable()
+    {
+        if(inputs != null)
+        {
+            inputs.Enable();
+        }
+    }
+
+    void OnDisable()
+    {
+        inputs.Disable();
     }
 
     void OnDestroy()

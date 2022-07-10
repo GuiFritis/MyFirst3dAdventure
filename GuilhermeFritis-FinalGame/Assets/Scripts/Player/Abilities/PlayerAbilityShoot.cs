@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerAbilityShoot : MonoBehaviour
+public class PlayerAbilityShoot : PlayerAbilityBase
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public GunBase gunBase;
+
+    protected override void Init()
     {
+        base.Init();
         
+        inputs.Gameplay.Shoot.performed += ctx => StartShoot();
+        inputs.Gameplay.Shoot.canceled += ctx => CancelShoot();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void StartShoot()
     {
-        
+        gunBase.StartShoot();
+    }
+
+    private void CancelShoot()
+    {
+        gunBase.StopShoot();
     }
 }
