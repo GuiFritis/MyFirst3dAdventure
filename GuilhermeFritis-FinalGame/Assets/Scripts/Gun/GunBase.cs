@@ -8,6 +8,8 @@ public class GunBase : MonoBehaviour
     public Transform shootPos;
     public float fireRate = 0.2f;
     public KeyCode shootKey = KeyCode.Mouse0;
+    public float projetileSpeed = 50f;
+
     private Coroutine _shootCoroutine;
 
     protected virtual IEnumerator ShootCoroutine()
@@ -19,9 +21,10 @@ public class GunBase : MonoBehaviour
         }   
     }
 
-    public void Shoot()
+    public virtual void Shoot()
     {
         var projectile = Instantiate(prefabProjectile, shootPos.position, shootPos.rotation);
+        projectile.speed = projetileSpeed;
     }
 
     public void StartShoot()
