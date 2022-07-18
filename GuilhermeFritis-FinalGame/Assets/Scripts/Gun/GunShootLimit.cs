@@ -18,7 +18,7 @@ public class GunShootLimit : GunBase
 
     protected override IEnumerator ShootCoroutine()
     {
-        while(_curShots < maxShoot)
+        while(_curShots < maxShoot && _activeWeapon)
         {
             Shoot();
             _curShots++;
@@ -47,25 +47,46 @@ public class GunShootLimit : GunBase
         while(time < cooldown)
         {
             time += Time.deltaTime;
-            foreach (var item in uIGunUpdaters)
+            if(_activeWeapon)
             {
-                item.UpdateValue(time/cooldown);
+                foreach (var item in uIGunUpdaters)
+                {
+                    item.UpdateValue(time/cooldown);
+                }
             }
             yield return new WaitForEndOfFrame();
         }
         _curShots = 0;
     }
 
+    public void ForceRecharge()
+    {
+        _curShots = maxShoot;
+        CheckAmmo();
+    }
+
     private void UpdateUI()
     {
-        foreach (var item in uIGunUpdaters)
+        if(_activeWeapon)
         {
-            item.UpdateValue(maxShoot, _curShots);
+            foreach (var item in uIGunUpdaters)
+            {
+                item.UpdateValue(maxShoot, _curShots);
+            }
         }
     }
 
     private void GetAllUIs()
     {
         uIGunUpdaters = GameObject.FindObjectsOfType<UIGunUpdater>().ToList();
+    }
+
+    public override void SetActiveWeapon(bool active)
+    {
+        base.SetActiveWeapon(active);
+        if(active)
+        {
+            UpdateUI();
+        }
     }
 }

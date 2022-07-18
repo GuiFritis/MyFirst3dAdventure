@@ -35,6 +35,33 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slot1"",
+                    ""type"": ""Button"",
+                    ""id"": ""a3a44b45-d072-4fcb-b157-ebf697d953ad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Slot2"",
+                    ""type"": ""Button"",
+                    ""id"": ""6c42f845-aa21-491f-b78a-1501d9f68ea9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RotateWeapon"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""99c30089-8837-4ab0-ab92-f897932b6768"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": ""Press"",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -59,6 +86,39 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""action"": ""Shoot"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2f074fa5-01bf-4089-a4fe-8363d89fd13a"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slot1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3c2ec4ab-5429-45e2-8b4e-d0ccc8257689"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Slot2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab767503-24ee-4a36-bf31-a5fc0033e579"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -68,6 +128,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Shoot = m_Gameplay.FindAction("Shoot", throwIfNotFound: true);
+        m_Gameplay_Slot1 = m_Gameplay.FindAction("Slot1", throwIfNotFound: true);
+        m_Gameplay_Slot2 = m_Gameplay.FindAction("Slot2", throwIfNotFound: true);
+        m_Gameplay_RotateWeapon = m_Gameplay.FindAction("RotateWeapon", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -128,11 +191,17 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Gameplay;
     private IGameplayActions m_GameplayActionsCallbackInterface;
     private readonly InputAction m_Gameplay_Shoot;
+    private readonly InputAction m_Gameplay_Slot1;
+    private readonly InputAction m_Gameplay_Slot2;
+    private readonly InputAction m_Gameplay_RotateWeapon;
     public struct GameplayActions
     {
         private @Inputs m_Wrapper;
         public GameplayActions(@Inputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Shoot => m_Wrapper.m_Gameplay_Shoot;
+        public InputAction @Slot1 => m_Wrapper.m_Gameplay_Slot1;
+        public InputAction @Slot2 => m_Wrapper.m_Gameplay_Slot2;
+        public InputAction @RotateWeapon => m_Wrapper.m_Gameplay_RotateWeapon;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -145,6 +214,15 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @Shoot.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShoot;
                 @Shoot.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShoot;
                 @Shoot.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnShoot;
+                @Slot1.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSlot1;
+                @Slot1.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSlot1;
+                @Slot1.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSlot1;
+                @Slot2.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSlot2;
+                @Slot2.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSlot2;
+                @Slot2.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSlot2;
+                @RotateWeapon.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotateWeapon;
+                @RotateWeapon.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotateWeapon;
+                @RotateWeapon.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotateWeapon;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -152,6 +230,15 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @Shoot.started += instance.OnShoot;
                 @Shoot.performed += instance.OnShoot;
                 @Shoot.canceled += instance.OnShoot;
+                @Slot1.started += instance.OnSlot1;
+                @Slot1.performed += instance.OnSlot1;
+                @Slot1.canceled += instance.OnSlot1;
+                @Slot2.started += instance.OnSlot2;
+                @Slot2.performed += instance.OnSlot2;
+                @Slot2.canceled += instance.OnSlot2;
+                @RotateWeapon.started += instance.OnRotateWeapon;
+                @RotateWeapon.performed += instance.OnRotateWeapon;
+                @RotateWeapon.canceled += instance.OnRotateWeapon;
             }
         }
     }
@@ -159,5 +246,8 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     public interface IGameplayActions
     {
         void OnShoot(InputAction.CallbackContext context);
+        void OnSlot1(InputAction.CallbackContext context);
+        void OnSlot2(InputAction.CallbackContext context);
+        void OnRotateWeapon(InputAction.CallbackContext context);
     }
 }

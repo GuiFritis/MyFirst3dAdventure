@@ -11,10 +11,11 @@ public class GunBase : MonoBehaviour
     public float projetileSpeed = 50f;
 
     private Coroutine _shootCoroutine;
+    protected bool _activeWeapon;
 
     protected virtual IEnumerator ShootCoroutine()
     {     
-        while(true)
+        while(_activeWeapon)
         {
             Shoot();
             yield return new WaitForSeconds(fireRate);
@@ -38,5 +39,10 @@ public class GunBase : MonoBehaviour
         {
             StopCoroutine(_shootCoroutine);
         }
+    }
+
+    public virtual void SetActiveWeapon(bool active)
+    {
+        _activeWeapon = active;
     }
 }
