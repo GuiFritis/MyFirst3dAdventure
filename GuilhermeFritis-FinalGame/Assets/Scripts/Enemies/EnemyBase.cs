@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Animation;
 
 namespace Enemy
 {
-    public class EnemyBase : MonoBehaviour
+    public class EnemyBase : MonoBehaviour, IDamageable
     {
+        public Collider collider;
         public float baseHealth = 10f;
         public bool destroyOnKill = false;
         [Header("Start Animation")]
@@ -14,7 +16,14 @@ namespace Enemy
         public Ease startAnimEase = Ease.OutBack;
         public bool startWithAnim = true;
 
+        [SerializeField]
+        private AnimationBase _animationBase;
         private float _curHealth;
+
+        void OnValidate()
+        {
+            collider = gameObject.GetComponent<Collider>();
+        }
 
         void Awake()
         {
@@ -37,18 +46,24 @@ namespace Enemy
 
         protected virtual void Die()
         {
+            PlayAnimationByType(AnimationType.DEATH);
             OnDie();
         }
 
         protected virtual void OnDie()
         {
+            if(collider != null)
+            {
+                collider.enabled = false;
+            }
+            
             if(destroyOnKill)
             {
-                Destroy(gameObject);
+                Destroy(gameObject, 2);
             }
         }
 
-        public virtual void TakeDamage(float damage)
+        protected virtual void OnDamage(float damage)
         {
             _curHealth -= damage;
             if(_curHealth <= 0)
@@ -62,6 +77,16 @@ namespace Enemy
         {
             transform.DOScale(0, startAnimDuration).SetEase(startAnimEase).From();
         }
-        #endregion
+
+        public void PlayAnimationByType(AnimationType animationType)
+        {
+            _animationBase.PlayAnimationByType(animationType);
+        }
+        #endregion      
+
+        public void TakeDamage(float damage)
+        {
+            OnDamage(damage);
+        }
     }
 }
