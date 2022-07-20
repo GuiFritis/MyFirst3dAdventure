@@ -9,6 +9,9 @@ namespace Enemy
     public class EnemyBase : MonoBehaviour, IDamageable
     {
         public Collider collider;
+        public FlashColor flashColor;
+        public ParticleSystem hit_VFX;
+        public ParticleSystem death_VFX;
         public float baseHealth = 10f;
         public bool destroyOnKill = false;
         [Header("Start Animation")]
@@ -23,6 +26,7 @@ namespace Enemy
         void OnValidate()
         {
             collider = gameObject.GetComponent<Collider>();
+            flashColor = gameObject.GetComponent<FlashColor>();
         }
 
         void Awake()
@@ -47,6 +51,10 @@ namespace Enemy
         protected virtual void Die()
         {
             PlayAnimationByType(AnimationType.DEATH);
+            if(death_VFX != null)
+            {
+                death_VFX.Play();
+            }
             OnDie();
         }
 
@@ -56,7 +64,7 @@ namespace Enemy
             {
                 collider.enabled = false;
             }
-            
+
             if(destroyOnKill)
             {
                 Destroy(gameObject, 2);
@@ -65,6 +73,15 @@ namespace Enemy
 
         protected virtual void OnDamage(float damage)
         {
+            if(flashColor != null)
+            {
+                flashColor.Flash(Color.white);
+            }
+            if(hit_VFX != null)
+            {
+                hit_VFX.Emit(10);
+            }
+
             _curHealth -= damage;
             if(_curHealth <= 0)
             {
