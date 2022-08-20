@@ -18,10 +18,12 @@ namespace Enemy
         public float startAnimDuration = .2f;
         public Ease startAnimEase = Ease.OutBack;
         public bool startWithAnim = true;
+        public bool lookAtPlayer = false;
 
         [SerializeField]
         private AnimationBase _animationBase;
         private float _curHealth;
+        private GameObject player;
 
         void OnValidate()
         {
@@ -32,6 +34,19 @@ namespace Enemy
         void Awake()
         {
             Init();
+        }
+
+        void Start()
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+
+        public virtual void Update()
+        {
+            if(lookAtPlayer && player != null)
+            {
+                transform.LookAt(player.transform.position);
+            }
         }
 
         protected virtual void Init()
@@ -104,6 +119,22 @@ namespace Enemy
         public void TakeDamage(float damage)
         {
             OnDamage(damage);
+        }
+
+        public void TakeDamage(float damage, Vector3 direction)
+        {
+            transform.DOMove(transform.position - direction, 0.1f);
+            TakeDamage(damage);
+        }
+
+        void OnCollisionEnter(Collision collision)
+        {
+            Player p = collider.gameObject.GetComponent<Player>();
+
+            if(p != null)
+            {
+                
+            }
         }
     }
 }

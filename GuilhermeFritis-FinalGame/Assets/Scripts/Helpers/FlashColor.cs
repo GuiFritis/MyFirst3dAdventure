@@ -6,22 +6,35 @@ using DG.Tweening;
 public class FlashColor : MonoBehaviour
 {
     public MeshRenderer meshRenderer;
+    public SkinnedMeshRenderer skinnedMeshRenderer;
     [Header("Setup")]
     public float duration = .1f;
 
     private Color startColor;
     private Tween _curTween;
 
-    void Start()
+    void OnValidate()
     {
-        startColor = meshRenderer.material.GetColor("_EmissionColor");
+        if(meshRenderer == null)
+        {
+            meshRenderer = GetComponent<MeshRenderer>();
+        }
+        if(skinnedMeshRenderer == null)
+        {
+            skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
+        }
     }
 
     public void Flash(Color color)
     {
-        if(!_curTween.IsActive())
+        if(meshRenderer != null && !_curTween.IsActive())
         {
-            meshRenderer.material.DOColor(color, "_EmissionColor", duration).SetLoops(2, LoopType.Yoyo);
+            _curTween = meshRenderer.material.DOColor(color, "_EmissionColor", duration).SetLoops(2, LoopType.Yoyo);
+        }
+
+        if(skinnedMeshRenderer != null && !_curTween.IsActive())
+        {
+            _curTween = skinnedMeshRenderer.material.DOColor(color, "_EmissionColor", duration).SetLoops(2, LoopType.Yoyo);
         }
     }
 }

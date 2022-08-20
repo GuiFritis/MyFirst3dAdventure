@@ -7,7 +7,6 @@ public class GunBase : MonoBehaviour
     public ProjectileBase prefabProjectile;
     public Transform shootPos;
     public float fireRate = 0.2f;
-    public KeyCode shootKey = KeyCode.Mouse0;
     public float projetileSpeed = 50f;
 
     private Coroutine _shootCoroutine;
@@ -30,7 +29,7 @@ public class GunBase : MonoBehaviour
 
     public void StartShoot()
     {
-        _shootCoroutine =  StartCoroutine(nameof(ShootCoroutine));
+        _shootCoroutine = StartCoroutine(nameof(ShootCoroutine));
     }
 
     public void StopShoot()

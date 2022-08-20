@@ -1,12 +1,11 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Padrao.StateMachine;
 using NaughtyAttributes;
+using DG.Tweening;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(CharacterController))]
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     public enum PlayerStates{
         IDLE,
@@ -36,10 +35,28 @@ public class Player : MonoBehaviour
     public LayerMask groundLayers;
 
     public StateMachine<PlayerStates> stateMachine;
+    [Header("Flash")]
+    public List<FlashColor> flashColors;
 
     private Vector3 _directionVector = Vector3.zero;
     private bool _grounded = true;
     private float _vSpeed = 0f;
+
+    #region LIFE
+    public void TakeDamage(float damage)
+    {
+        foreach (var item in flashColors)   
+        {
+            item.Flash(Color.red);
+        }
+    }
+
+    public void TakeDamage(float damage, Vector3 direction)
+    {
+        transform.DOMove(transform.position - direction, 0.1f);
+        TakeDamage(damage);
+    }
+    #endregion
 
     void OnValidate()
     {

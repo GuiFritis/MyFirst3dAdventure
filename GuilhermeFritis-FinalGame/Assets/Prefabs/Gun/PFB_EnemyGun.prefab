@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 276805599140906852}
   - component: {fileID: 276805599140906853}
   m_Layer: 0
-  m_Name: PFB_Gun
+  m_Name: PFB_EnemyGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,10 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050add5379044c34f922c315d7c32f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabProjectile: {fileID: 7402294000915557449, guid: d06e29c0b4cf9094c9d0cc7bbaaabbcb, type: 3}
+  prefabProjectile: {fileID: 7402294000915557449, guid: ae4a9b4a86b324a43b711f4c9b8290d6, type: 3}
   shootPos: {fileID: 276805599669982278}
-  fireRate: 0.2
-  shootKey: 323
+  fireRate: 0.6
   projetileSpeed: 50
 --- !u!1 &276805599669982279
 GameObject:

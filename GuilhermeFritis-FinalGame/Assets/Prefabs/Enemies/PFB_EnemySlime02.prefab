@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2748906424391816667}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
@@ -41,11 +41,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2748906425239378236}
-  - component: {fileID: 2748906425239378227}
+  - component: {fileID: 3152321995553852328}
   - component: {fileID: 2748906425239378226}
   - component: {fileID: 2748906425239378237}
   - component: {fileID: 2748906425239378238}
-  m_Layer: 0
+  - component: {fileID: 8596705697392497179}
+  m_Layer: 7
   m_Name: PFB_EnemySlime02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,7 +60,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2748906425239378225}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 407.7, y: -7.99, z: 50.84704}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -70,7 +71,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &2748906425239378227
+--- !u!114 &3152321995553852328
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -79,7 +80,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2748906425239378225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67a4108cabd309e4898e0660c5399b47, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f8907fcb3c185440a41444fda154a18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   collider: {fileID: 2748906425239378226}
@@ -92,6 +93,14 @@ MonoBehaviour:
   startAnimEase: 27
   startWithAnim: 1
   _animationBase: {fileID: 2748906425239378237}
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  minDistance: 1
+  speed: 4
+  height: 3.77
+  center: 1.96
 --- !u!65 &2748906425239378226
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -140,7 +149,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 6479630325920766623}
+  skinnedMeshRenderer: {fileID: 0}
   duration: 0.1
+--- !u!54 &8596705697392497179
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2748906425239378225}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1001 &395533497788310897
 PrefabInstance:
   m_ObjectHideFlags: 0
