@@ -2,7 +2,7 @@
 namespace Padrao.StateMachine{
     public class StateBase
     {
-        public virtual void OnStateEnter(object t = null)
+        public virtual void OnStateEnter(params object[] objs)
         {
         }
         

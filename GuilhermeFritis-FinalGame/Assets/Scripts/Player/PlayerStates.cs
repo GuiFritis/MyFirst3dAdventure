@@ -5,7 +5,7 @@ using Padrao.StateMachine;
 
 public class PlayerIdle : StateBase{
 
-    public override void OnStateEnter(object t = null)
+    public override void OnStateEnter(params object[] objs)
     {
         
     }
@@ -13,7 +13,7 @@ public class PlayerIdle : StateBase{
 
 public class PlayerWalking : StateBase{
 
-    public override void OnStateEnter(object t = null)
+    public override void OnStateEnter(params object[] objs)
     {
         GameManager.Instance.player.animator.SetBool(GameManager.Instance.player.animWalk, true);
     }
@@ -26,7 +26,7 @@ public class PlayerWalking : StateBase{
 
 public class PlayerRunning : StateBase{
 
-    public override void OnStateEnter(object t = null)
+    public override void OnStateEnter(params object[] objs)
     {
         GameManager.Instance.player.animator.SetBool(GameManager.Instance.player.animWalk, true);
         GameManager.Instance.player.animator.speed = GameManager.Instance.player.speedMultiplier; 
@@ -41,7 +41,7 @@ public class PlayerRunning : StateBase{
 
 public class PlayerJumping : StateBase{
 
-    public override void OnStateEnter(object t = null)
+    public override void OnStateEnter(params object[] objs)
     {
         GameManager.Instance.player.Jump();
     }

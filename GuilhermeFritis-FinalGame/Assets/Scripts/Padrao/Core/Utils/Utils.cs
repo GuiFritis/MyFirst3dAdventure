@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Utils
+namespace Padrao.Core.Utils
 {  
     public static class Utils
     {
-        #if UNITY_EDITOR
-        [UnityEditor.MenuItem("Ebac/TEST %g")]
-        public static void Test(){
-            Debug.Log("Test");
-        }
-        #endif
-
         public static void Scale(this Transform t, float size=1.2f){
             t.localScale = Vector3.one * size;
         }
@@ -34,6 +27,45 @@ namespace Utils
 
         public static T GetRandom<T>(this T[] arr){
             return arr[Random.Range(0, arr.Length)];
+        }
+
+        public static Vector3 RandowPositionAround(this Vector3 position)
+        {
+            position.x += Random.Range(-1.5f, 1.5f);
+            position.y += Random.Range(-1.5f, 1.5f);
+            return position;
+        }
+
+        public static void AddNew<T>(this List<T> list, T obj)
+        {
+            if(!list.Contains(obj))
+            {
+                list.Add(obj);
+            }
+        }
+
+        public static int IndexOf<T>(this T[] array, T obj)
+        {
+            for(int i = 0; i < array.Length; i++)
+            {
+                if(array[i].Equals(obj))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        public static bool Contains<T>(this T[] array, T obj)
+        {
+            foreach (T item in array)
+            {
+                if(item.Equals(obj))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
     }
