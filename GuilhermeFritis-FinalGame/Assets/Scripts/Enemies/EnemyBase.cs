@@ -19,6 +19,7 @@ namespace Enemy
         public Ease startAnimEase = Ease.OutBack;
         public bool startWithAnim = true;
         public bool lookAtPlayer = false;
+        public float damage = 1f;
 
         [SerializeField]
         private AnimationBase _animationBase;
@@ -129,11 +130,13 @@ namespace Enemy
 
         void OnCollisionEnter(Collision collision)
         {
-            Player p = collider.gameObject.GetComponent<Player>();
-
-            if(p != null)
+            var damageable = collision.gameObject.GetComponent<IDamageable>();
+            if(damageable != null)
             {
-                
+                Vector3 dir = collision.transform.position - transform.position;
+                dir = -dir.normalized;
+                dir.y = 0f;
+                damageable.TakeDamage(damage, dir);
             }
         }
     }

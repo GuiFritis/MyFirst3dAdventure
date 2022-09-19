@@ -51,6 +51,8 @@ namespace Boss{
             stateMachine.RegisterStates(BossAction.WALK, new BossStateWalk());
             stateMachine.RegisterStates(BossAction.ATTACK, new BossStateAttack());
             stateMachine.RegisterStates(BossAction.DEATH, new BossStateDeath());
+
+            SwitchState(BossAction.INIT);
         }
 
         private void BossDeath(HealthBase hb)
@@ -61,7 +63,7 @@ namespace Boss{
         #region WALK
         public void GoToRandomPoint(Action onArrive = null)
         {
-            StartCoroutine(GoToPointCoroutine(waypoints.GetRandom()));
+            StartCoroutine(GoToPointCoroutine(waypoints.GetRandom(), onArrive));
         }
 
         IEnumerator GoToPointCoroutine(Transform t, Action onArrive = null)
@@ -88,6 +90,7 @@ namespace Boss{
             {
                 attacks++;
                 transform.DOScale(1.1f, .1f).SetLoops(2, LoopType.Yoyo);
+
                 yield return new WaitForSeconds(timeBetweenAttacks);
             }
             onEndAttack?.Invoke();

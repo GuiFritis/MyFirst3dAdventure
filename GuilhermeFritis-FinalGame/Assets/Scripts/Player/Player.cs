@@ -5,6 +5,7 @@ using DG.Tweening;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(HealthBase))]
 public class Player : MonoBehaviour, IDamageable
 {
     public enum PlayerStates{
