@@ -17,7 +17,7 @@ namespace Boss{
     }
 
     [RequireComponent(typeof(HealthBase))]
-    public class BossBase : MonoBehaviour
+    public class BossBase : MonoBehaviour, IWakeableEnemy
     {
         [Header("Animation")]
         public float startAnimDuration = .5f;
@@ -53,6 +53,16 @@ namespace Boss{
             stateMachine.RegisterStates(BossAction.DEATH, new BossStateDeath());
 
             SwitchState(BossAction.INIT);
+        }
+
+        public virtual void WakeUp(GameObject player)
+        {
+            SwitchState(BossAction.WALK);
+        }
+
+        public virtual void Sleep()
+        {
+            SwitchState(BossAction.IDLE);
         }
 
         private void BossDeath(HealthBase hb)

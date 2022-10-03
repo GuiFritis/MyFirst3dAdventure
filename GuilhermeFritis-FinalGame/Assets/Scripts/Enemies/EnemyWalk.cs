@@ -12,6 +12,7 @@ namespace Enemy
         public float center = 0f;
         
         private int _index = 0;
+        private bool _walking = false;
 
         void Awake()
         {
@@ -24,6 +25,14 @@ namespace Enemy
 
         public override void Update()
         {
+            if(_walking)
+            {
+                MoveToWaypoint();
+            }
+        }
+
+        private void MoveToWaypoint()
+        {            
             if(Vector3.Distance(transform.position, waypoints[_index].transform.position) < minDistance)
             {
                 _index++;
@@ -35,6 +44,20 @@ namespace Enemy
 
             transform.position = Vector3.MoveTowards(transform.position, waypoints[_index].transform.position, Time.deltaTime * speed);
             transform.LookAt(waypoints[_index].transform.position);
+        }
+
+        public override void WakeUp(GameObject player)
+        {
+            base.WakeUp(player);
+
+            _walking = true;
+        }
+
+        public override void Sleep()
+        {
+            base.Sleep();
+
+            _walking = false;
         }
 
         void OnDrawGizmosSelected()

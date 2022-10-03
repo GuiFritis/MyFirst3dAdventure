@@ -10,11 +10,23 @@ namespace Enemy
 
         protected override void Init()
         {
-            Debug.Log("INIT");
             base.Init();
 
             gunBase.SetActiveWeapon(true);
+        }
+
+        public override void WakeUp(GameObject player)
+        {
+            base.WakeUp(player);
+            
             gunBase.StartShoot();
+        }
+
+        public override void Sleep()
+        {
+            base.Sleep();
+
+            gunBase.StopShoot();
         }
     }
 }

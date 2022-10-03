@@ -6,7 +6,7 @@ using Animation;
 
 namespace Enemy
 {
-    public class EnemyBase : MonoBehaviour, IDamageable
+    public class EnemyBase : MonoBehaviour, IDamageable, IWakeableEnemy
     {
         public Collider collider;
         public FlashColor flashColor;
@@ -48,6 +48,16 @@ namespace Enemy
             {
                 transform.LookAt(player.transform.position);
             }
+        }
+
+        public virtual void WakeUp(GameObject player)
+        {
+
+        }
+
+        public virtual void Sleep()
+        {
+            
         }
 
         protected virtual void Init()

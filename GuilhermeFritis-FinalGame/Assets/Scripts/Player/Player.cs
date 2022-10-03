@@ -32,6 +32,7 @@ public class Player : MonoBehaviour, IDamageable
     public string animWalk = "WALKING";
 
     public float gravity = -9.8f;
+    public float fallHeight = 0.2f;
 
     public LayerMask groundLayers;
 
@@ -114,8 +115,11 @@ public class Player : MonoBehaviour, IDamageable
     }
 
     public void Move(){
-        if(_directionVector.y < 0 && !charController.isGrounded){
-            animator.SetBool("Falling", true);
+        if(_directionVector.y < 0.5f && !charController.isGrounded){
+            if(!Physics.Raycast(transform.position, Vector3.down, fallHeight, groundLayers))
+            {
+                animator.SetBool("Falling", true);
+            }
         }
         charController.Move(_directionVector * Time.deltaTime);
     }
@@ -136,6 +140,12 @@ public class Player : MonoBehaviour, IDamageable
     public void Jump(){
         _vSpeed = jumpForce;
         animator.SetTrigger("Jump");
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(transform.position, transform.position + (Vector3.down * fallHeight));
     }
 
 }
