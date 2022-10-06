@@ -12060,6 +12060,9 @@ MonoBehaviour:
   charController: {fileID: 2071947526}
   animator: {fileID: 1814513469}
   health: {fileID: 2071947529}
+  colliders:
+  - {fileID: 2071947526}
+  - {fileID: 2071947528}
   speed: 8
   turnSpeed: 250
   speedMultiplier: 1.5

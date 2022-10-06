@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     [Foldout("Components")]
     public HealthBase health;
 
+    public List<Collider> colliders;
+
     [Foldout("Movement")]
     public float speed = 1f;
     [Foldout("Movement")]
@@ -47,7 +49,7 @@ public class Player : MonoBehaviour
     private float _vSpeed = 0f;
 
     #region LIFE
-    public void TakeDamage(HealthBase hp)
+    private void TakeDamage(HealthBase hp)
     {
         foreach (var item in flashColors)   
         {
@@ -55,11 +57,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    // public void TakeDamage(float damage, Vector3 direction)
-    // {
-    //     transform.DOMove(transform.position - direction, 0.1f);
-    //     TakeDamage(damage);
-    // }
+    private void Death(HealthBase hp)
+    {
+        animator.SetTrigger("Death");
+        foreach (var item in colliders)
+        {
+            item.enabled = false;
+        }
+    }
     #endregion
 
     void OnValidate()
@@ -72,6 +77,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         health.OnDamage += TakeDamage;
+        health.OnDeath += Death;
     }
 
     void Start()

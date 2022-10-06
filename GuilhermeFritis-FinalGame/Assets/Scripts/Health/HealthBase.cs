@@ -10,6 +10,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     public float baseHealth = 10f;
 
     private float _curHealth;
+    private bool dead = false;
 
     void Awake()
     {
@@ -27,6 +28,7 @@ public class HealthBase : MonoBehaviour, IDamageable
 
     protected virtual void Death()
     {
+        dead = true;
         OnDeath?.Invoke(this);
         if(destroyOnDeath)
         {
@@ -36,11 +38,9 @@ public class HealthBase : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-        Debug.Log(gameObject.name);
-        Debug.Log(damage);
         _curHealth -= damage;
         OnDamage?.Invoke(this);
-        if(_curHealth <= 0)
+        if(_curHealth <= 0 && !dead)
         {
             Death();
         }
