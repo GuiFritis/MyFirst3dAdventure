@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(HealthBase))]
-public class Player : MonoBehaviour, IDamageable
+public class Player : MonoBehaviour
 {
     public enum PlayerStates{
         IDLE,
@@ -19,6 +19,8 @@ public class Player : MonoBehaviour, IDamageable
     public CharacterController charController;
     [Foldout("Components")]
     public Animator animator;
+    [Foldout("Components")]
+    public HealthBase health;
 
     [Foldout("Movement")]
     public float speed = 1f;
@@ -45,7 +47,7 @@ public class Player : MonoBehaviour, IDamageable
     private float _vSpeed = 0f;
 
     #region LIFE
-    public void TakeDamage(float damage)
+    public void TakeDamage(HealthBase hp)
     {
         foreach (var item in flashColors)   
         {
@@ -53,17 +55,23 @@ public class Player : MonoBehaviour, IDamageable
         }
     }
 
-    public void TakeDamage(float damage, Vector3 direction)
-    {
-        transform.DOMove(transform.position - direction, 0.1f);
-        TakeDamage(damage);
-    }
+    // public void TakeDamage(float damage, Vector3 direction)
+    // {
+    //     transform.DOMove(transform.position - direction, 0.1f);
+    //     TakeDamage(damage);
+    // }
     #endregion
 
     void OnValidate()
     {
         charController = gameObject.GetComponent<CharacterController>();
         animator = gameObject.GetComponentInChildren<Animator>();
+        health = gameObject.GetComponent<HealthBase>();
+    }
+
+    void Awake()
+    {
+        health.OnDamage += TakeDamage;
     }
 
     void Start()

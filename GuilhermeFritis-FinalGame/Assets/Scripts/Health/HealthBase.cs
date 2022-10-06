@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthBase : MonoBehaviour
+public class HealthBase : MonoBehaviour, IDamageable
 {
     public Action<HealthBase> OnDamage;
     public Action<HealthBase> OnDeath;
@@ -36,11 +36,18 @@ public class HealthBase : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        Debug.Log(gameObject.name);
+        Debug.Log(damage);
         _curHealth -= damage;
         OnDamage?.Invoke(this);
         if(_curHealth <= 0)
         {
             Death();
         }
+    }
+
+    public void TakeDamage(float damage, Vector3 dir)
+    {
+        TakeDamage(damage);
     }
 }

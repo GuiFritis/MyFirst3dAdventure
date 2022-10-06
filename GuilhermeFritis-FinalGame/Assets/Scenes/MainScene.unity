@@ -5317,6 +5317,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 1366954676369376144, guid: eae2a6ee677253449b7f387a09f6d0af, type: 3}
+      propertyPath: damage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1366954676369376146, guid: eae2a6ee677253449b7f387a09f6d0af, type: 3}
       propertyPath: m_Name
       value: PFB_EnemySlime01
@@ -12055,6 +12059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charController: {fileID: 2071947526}
   animator: {fileID: 1814513469}
+  health: {fileID: 2071947529}
   speed: 8
   turnSpeed: 250
   speedMultiplier: 1.5
@@ -12858,6 +12863,10 @@ PrefabInstance:
     - target: {fileID: 2889430095227675000, guid: 49dbec960da8c284abbf5571e2ef3b0e, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3152321995553852328, guid: 49dbec960da8c284abbf5571e2ef3b0e, type: 3}
+      propertyPath: damage
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3152321995553852328, guid: 49dbec960da8c284abbf5571e2ef3b0e, type: 3}
       propertyPath: waypoints.Array.data[0]
@@ -24158,7 +24167,7 @@ MonoBehaviour:
   startAnimEase: 27
   startWithAnim: 1
   lookAtPlayer: 0
-  damage: 1
+  damage: 10
   _animationBase: {fileID: 6797861959030513795}
 --- !u!1 &6797861959030513807
 GameObject:
