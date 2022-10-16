@@ -50,4 +50,8 @@ public class HealthBase : MonoBehaviour, IDamageable
     {
         TakeDamage(damage);
     }
+
+    public float getCurHealth(){
+        return _curHealth;
+    }
 }

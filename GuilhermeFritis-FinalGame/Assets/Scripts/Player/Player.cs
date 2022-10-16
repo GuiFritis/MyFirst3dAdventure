@@ -19,8 +19,11 @@ public class Player : MonoBehaviour
     public CharacterController charController;
     [Foldout("Components")]
     public Animator animator;
-    [Foldout("Components")]
+
+    [Foldout("Health")]
     public HealthBase health;
+    [Foldout("Health")]
+    public List<UIFillUpdater> uiHealthUpdaters;
 
     public List<Collider> colliders;
 
@@ -54,6 +57,13 @@ public class Player : MonoBehaviour
         foreach (var item in flashColors)   
         {
             item.Flash(Color.red);
+        }
+        if(uiHealthUpdaters.Count > 0)
+        {
+            foreach (var item in uiHealthUpdaters)
+            {
+                item.UpdateValue(hp.getCurHealth()/hp.baseHealth);
+            }
         }
     }
 
