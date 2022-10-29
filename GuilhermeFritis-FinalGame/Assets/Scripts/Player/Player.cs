@@ -74,8 +74,26 @@ public class Player : MonoBehaviour
         {
             item.enabled = false;
         }
+
+        Invoke(nameof(Revive), 2f);
+    }
+
+    private void Revive()
+    {
+        health.ResetLife();
+        animator.SetTrigger("Revive");
+        Respawn();
+        Invoke(nameof(TurnOnColliders), 0.5f);
     }
     #endregion
+
+    private void TurnOnColliders()
+    {
+        foreach (var item in colliders)
+        {
+            item.enabled = true;
+        }
+    }
 
     void OnValidate()
     {
@@ -164,6 +182,14 @@ public class Player : MonoBehaviour
     public void Jump(){
         _vSpeed = jumpForce;
         animator.SetTrigger("Jump");
+    }
+
+    public void Respawn()
+    {
+        if(CheckpointManager.Instance.HasCheckpoint())
+        {
+            transform.position = CheckpointManager.Instance.GetPositionFromLastCheckpoint();
+        }
     }
 
     void OnDrawGizmosSelected()
