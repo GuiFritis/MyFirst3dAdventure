@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
     #region LIFE
     private void TakeDamage(HealthBase hp)
     {
+        EffectsManager.Instance.ChangeVignette();
         foreach (var item in flashColors)   
         {
             item.Flash(Color.red);
