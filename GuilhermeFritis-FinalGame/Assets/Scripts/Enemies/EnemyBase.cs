@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Animation;
+using NaughtyAttributes;
 
 namespace Enemy
 {
@@ -19,6 +20,8 @@ namespace Enemy
         public Ease startAnimEase = Ease.OutBack;
         public bool startWithAnim = true;
         public bool lookAtPlayer = false;
+        [ShowIf("lookAtPlayer")]
+        public float lookRotation = 0.1f;
         public float damage = 1f;
 
         [SerializeField]
@@ -46,7 +49,11 @@ namespace Enemy
         {
             if(lookAtPlayer && player != null)
             {
-                transform.LookAt(player.transform.position);
+                transform.rotation = Quaternion.Lerp(
+                    transform.rotation, 
+                    Quaternion.LookRotation(player.transform.position - transform.position),
+                    lookRotation * Time.deltaTime
+                );
             }
         }
 

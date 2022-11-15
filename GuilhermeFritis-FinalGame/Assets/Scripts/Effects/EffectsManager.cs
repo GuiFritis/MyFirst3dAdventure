@@ -8,7 +8,7 @@ public class EffectsManager : Singleton<EffectsManager>
     public PostProcessVolume processVolume;
     public Color flashColor = Color.red;
     public float flashIntensity = 0.5f;
-    public float flashDuration = 0.3f;
+    public float flashDuration = 0.15f;
 
     [SerializeField]
     private Vignette _vignette;
@@ -30,7 +30,7 @@ public class EffectsManager : Singleton<EffectsManager>
         {
             ColorParameter color = new ColorParameter();
 
-            color.value = Color.Lerp(Color.white, Color.red, time / flashDuration);
+            color.value = Color.Lerp(Color.black, Color.red, time / flashDuration);
 
             _vignette.color.Override(color);
             _vignette.intensity.Override(flashIntensity * time / flashDuration);

@@ -15,6 +15,13 @@ namespace Enemy
             gunBase.SetActiveWeapon(true);
         }
 
+        protected override void Die()
+        {
+            gunBase.StopShoot();
+            gunBase.SetActiveWeapon(false);
+            base.Die();
+        }
+
         public override void WakeUp(GameObject player)
         {
             base.WakeUp(player);

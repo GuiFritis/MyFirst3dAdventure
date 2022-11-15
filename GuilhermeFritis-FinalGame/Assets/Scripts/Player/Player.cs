@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
                 item.UpdateValue(hp.getCurHealth()/hp.baseHealth);
             }
         }
+        ShakeCamera.Instance.Shake(5, 5, 0.15f);
     }
 
     private void Death(HealthBase hp)
@@ -158,17 +159,14 @@ public class Player : MonoBehaviour
     }
 
     public void Move(){
-        if(_directionVector.y < 0.5f && !charController.isGrounded){
-            if(!Physics.Raycast(transform.position, Vector3.down, fallHeight, groundLayers))
-            {
+        if(_directionVector.y < 0.5f && !charController.isGrounded && !Physics.Raycast(transform.position, Vector3.down, fallHeight, groundLayers)){
                 animator.SetBool("Falling", true);
-            }
         }
         charController.Move(_directionVector * Time.deltaTime);
     }
 
     private void CheckJump(){
-        if(charController.isGrounded){
+        if(charController.isGrounded || Physics.Raycast(transform.position, Vector3.down, fallHeight, groundLayers)){
             animator.SetBool("Falling", false);
             _vSpeed = 0f;
             if(_directionVector.magnitude == 0){

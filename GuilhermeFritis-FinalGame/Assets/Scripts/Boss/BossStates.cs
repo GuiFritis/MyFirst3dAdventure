@@ -25,6 +25,15 @@ namespace Boss
         }
     }
 
+    public class BossStateIdle : BossStateBase
+    {
+        public override void OnStateEnter(params object[] objs)
+        {
+            base.OnStateEnter(objs);
+            boss.StartInitAnimation();
+        }
+    }
+
     public class BossStateWalk : BossStateBase
     {
         public override void OnStateEnter(params object[] objs)

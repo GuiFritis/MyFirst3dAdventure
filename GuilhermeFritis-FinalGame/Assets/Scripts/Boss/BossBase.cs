@@ -48,6 +48,7 @@ namespace Boss{
             stateMachine.Init();
 
             stateMachine.RegisterStates(BossAction.INIT, new BossStateInit());
+            stateMachine.RegisterStates(BossAction.IDLE, new BossStateIdle());
             stateMachine.RegisterStates(BossAction.WALK, new BossStateWalk());
             stateMachine.RegisterStates(BossAction.ATTACK, new BossStateAttack());
             stateMachine.RegisterStates(BossAction.DEATH, new BossStateDeath());

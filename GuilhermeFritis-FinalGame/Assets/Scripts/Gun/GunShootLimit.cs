@@ -78,7 +78,11 @@ public class GunShootLimit : GunBase
 
     private void GetAllUIs()
     {
-        uIGunUpdaters = GameObject.FindObjectsOfType<UIFillUpdater>().ToList();
+        var listOfUis = GameObject.FindGameObjectsWithTag("GunUI"); //FindObjectsOfType<UIFillUpdater>().ToList();
+        foreach (var item in listOfUis)
+        {
+            uIGunUpdaters.Add(item.GetComponent<UIFillUpdater>());
+        }
     }
 
     public override void SetActiveWeapon(bool active)

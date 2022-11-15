@@ -75,6 +75,8 @@ MonoBehaviour:
   startAnimEase: 27
   startWithAnim: 1
   lookAtPlayer: 1
+  lookRotation: 2
+  damage: 1
   _animationBase: {fileID: 8713999728386451467}
   gunBase: {fileID: 8245095160739431410}
 --- !u!114 &8713999728386451467
