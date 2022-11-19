@@ -12,12 +12,12 @@ public class SOUIIntUpdate : MonoBehaviour
 
     void Start()
     {
-        UITextValue.text = "X " + soInt.value.ToString();
+        UITextValue.text = "X " + soInt.Value.ToString();
     }
 
     void Update()
     {
-        UITextValue.text = "X " + soInt.value.ToString();
+        UITextValue.text = "X " + soInt.Value.ToString();
     }
 
 }

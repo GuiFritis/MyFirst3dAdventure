@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Padrao.Core.Singleton;
+using UnityEngine;
 
 namespace Items 
 {
@@ -11,9 +12,6 @@ namespace Items
 
     public class ItemManager : Singleton<ItemManager>
     {
-        public SOInt coins;
-        public SOInt energy;
-
         public List<ItemSetup> itemsSetup = new List<ItemSetup>();
 
         void Start()
@@ -25,13 +23,13 @@ namespace Items
         {
             foreach (var item in itemsSetup)
             {
-                item.soInt.value = 0;
+                item.soInt.Value = 0;
             }
         }
 
         public void AddByType(ItemType type, int amount = 1)
         {
-            itemsSetup.Find(i => i.itemType == type).soInt.value += amount;
+            itemsSetup.Find(i => i.itemType == type).soInt.Value += amount;
         }
 
         public void RemoveByType(ItemType type, int amount = 1)
@@ -42,11 +40,11 @@ namespace Items
             }
 
             var item = itemsSetup.Find(i => i.itemType == type);
-            item.soInt.value -= amount;
-            
-            if(item.soInt.value < 0)
+            item.soInt.Value -= amount;
+
+            if(item.soInt.Value < 0)
             {
-                item.soInt.value = 0;
+                item.soInt.Value = 0;
             }            
         }
     }
@@ -56,6 +54,7 @@ namespace Items
     {
         public ItemType itemType;
         public SOInt soInt;
+        public Sprite icon;
 
     }
 }

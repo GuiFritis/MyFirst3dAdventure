@@ -26,7 +26,6 @@ namespace Items
         protected override void OnCollect()
         {
             base.OnCollect();
-            ItemManager.Instance.AddByType(ItemType.COIN, 1);
         }
     }
 }
