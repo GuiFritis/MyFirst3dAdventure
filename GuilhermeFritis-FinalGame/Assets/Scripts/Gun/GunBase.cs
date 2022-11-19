@@ -29,7 +29,7 @@ public class GunBase : MonoBehaviour
 
     public void StartShoot()
     {
-        _shootCoroutine = StartCoroutine(nameof(ShootCoroutine));
+        _shootCoroutine = StartCoroutine(ShootCoroutine());
     }
 
     public void StopShoot()

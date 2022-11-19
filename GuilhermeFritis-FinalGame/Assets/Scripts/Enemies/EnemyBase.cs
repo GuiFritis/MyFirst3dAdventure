@@ -141,7 +141,7 @@ namespace Enemy
 
         public void TakeDamage(float damage, Vector3 direction)
         {
-            transform.DOMove(transform.position - direction, 0.1f);
+            transform.DOMove(transform.position - direction * 0.5f, 0.1f);
             TakeDamage(damage);
         }
 

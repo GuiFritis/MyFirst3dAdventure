@@ -1,12 +1,13 @@
+using System;
 using UnityEngine;
 using Padrao.StateMachine;
 using NaughtyAttributes;
-using DG.Tweening;
 using System.Collections.Generic;
+using Padrao.Core.Singleton;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(HealthBase))]
-public class Player : MonoBehaviour
+public class Player : Singleton<Player>
 {
     public enum PlayerStates{
         IDLE,
@@ -22,8 +23,6 @@ public class Player : MonoBehaviour
 
     [Foldout("Health")]
     public HealthBase health;
-    [Foldout("Health")]
-    public List<UIFillUpdater> uiHealthUpdaters;
 
     public List<Collider> colliders;
 
@@ -58,13 +57,6 @@ public class Player : MonoBehaviour
         foreach (var item in flashColors)   
         {
             item.Flash(Color.red);
-        }
-        if(uiHealthUpdaters.Count > 0)
-        {
-            foreach (var item in uiHealthUpdaters)
-            {
-                item.UpdateValue(hp.getCurHealth()/hp.baseHealth);
-            }
         }
         ShakeCamera.Instance.Shake(5, 5, 0.15f);
     }
@@ -104,8 +96,9 @@ public class Player : MonoBehaviour
         health = gameObject.GetComponent<HealthBase>();
     }
 
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         health.OnDamage += TakeDamage;
         health.OnDeath += Death;
     }

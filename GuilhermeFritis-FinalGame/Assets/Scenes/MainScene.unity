@@ -2000,6 +2000,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7703423336758522442, guid: 9543c8747ede5a84589ebcb498fb4515, type: 3}
   m_PrefabInstance: {fileID: 371183322}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &412467733
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 412467735}
+  - component: {fileID: 412467734}
+  m_Layer: 0
+  m_Name: ActionLifePack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &412467734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412467733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab1bba16af3835e418a397aa4be3908e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputAction: {fileID: -5734759141946998262, guid: 59cae43adea1fe54ea088be4a44aef05, type: 3}
+  soInt: {fileID: 0}
+--- !u!4 &412467735
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412467733}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 67.17079, y: 58.795998, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &418979325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,7 +2361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 453532114}
-  cmBasicMultiChanel: {fileID: 0}
+  cmBasicMultiChanel: {fileID: 807191131}
 --- !u!114 &453532114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3812,6 +3858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyOnDeath: 0
   baseHealth: 10
+  uiHealthUpdaters: []
 --- !u!1001 &704143144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14254,9 +14301,6 @@ MonoBehaviour:
   charController: {fileID: 2071947526}
   animator: {fileID: 1814513469}
   health: {fileID: 2071947529}
-  uiHealthUpdaters:
-  - {fileID: 2040206200}
-  - {fileID: 923345186}
   colliders:
   - {fileID: 2071947526}
   - {fileID: 2071947528}
@@ -14359,6 +14403,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyOnDeath: 0
   baseHealth: 50
+  uiHealthUpdaters:
+  - {fileID: 2040206200}
+  - {fileID: 923345186}
 --- !u!54 &2071947530
 Rigidbody:
   m_ObjectHideFlags: 0

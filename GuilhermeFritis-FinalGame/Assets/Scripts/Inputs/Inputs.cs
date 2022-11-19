@@ -62,6 +62,15 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Press"",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LifePack"",
+                    ""type"": ""Button"",
+                    ""id"": ""3d8f4f5d-923a-4344-bbad-8112d2401d47"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -119,6 +128,17 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""action"": ""RotateWeapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d5cd23b-b0fc-4299-aac8-dc5d20e601a3"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LifePack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -131,6 +151,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         m_Gameplay_Slot1 = m_Gameplay.FindAction("Slot1", throwIfNotFound: true);
         m_Gameplay_Slot2 = m_Gameplay.FindAction("Slot2", throwIfNotFound: true);
         m_Gameplay_RotateWeapon = m_Gameplay.FindAction("RotateWeapon", throwIfNotFound: true);
+        m_Gameplay_LifePack = m_Gameplay.FindAction("LifePack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -194,6 +215,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Slot1;
     private readonly InputAction m_Gameplay_Slot2;
     private readonly InputAction m_Gameplay_RotateWeapon;
+    private readonly InputAction m_Gameplay_LifePack;
     public struct GameplayActions
     {
         private @Inputs m_Wrapper;
@@ -202,6 +224,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         public InputAction @Slot1 => m_Wrapper.m_Gameplay_Slot1;
         public InputAction @Slot2 => m_Wrapper.m_Gameplay_Slot2;
         public InputAction @RotateWeapon => m_Wrapper.m_Gameplay_RotateWeapon;
+        public InputAction @LifePack => m_Wrapper.m_Gameplay_LifePack;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -223,6 +246,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @RotateWeapon.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotateWeapon;
                 @RotateWeapon.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotateWeapon;
                 @RotateWeapon.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRotateWeapon;
+                @LifePack.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLifePack;
+                @LifePack.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLifePack;
+                @LifePack.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLifePack;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -239,6 +265,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @RotateWeapon.started += instance.OnRotateWeapon;
                 @RotateWeapon.performed += instance.OnRotateWeapon;
                 @RotateWeapon.canceled += instance.OnRotateWeapon;
+                @LifePack.started += instance.OnLifePack;
+                @LifePack.performed += instance.OnLifePack;
+                @LifePack.canceled += instance.OnLifePack;
             }
         }
     }
@@ -249,5 +278,6 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         void OnSlot1(InputAction.CallbackContext context);
         void OnSlot2(InputAction.CallbackContext context);
         void OnRotateWeapon(InputAction.CallbackContext context);
+        void OnLifePack(InputAction.CallbackContext context);
     }
 }

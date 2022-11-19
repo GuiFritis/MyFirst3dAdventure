@@ -8,6 +8,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     public Action<HealthBase> OnDeath;
     public bool destroyOnDeath = false;
     public float baseHealth = 10f;
+    public List<UIFillUpdater> uiHealthUpdaters;
 
     private float _curHealth;
     private bool dead = false;
@@ -25,6 +26,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     {
         _curHealth = baseHealth;
         dead = false;
+        UpdateUI();
     }
 
     protected virtual void Death()
@@ -40,6 +42,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         _curHealth -= damage;
+        UpdateUI();
         OnDamage?.Invoke(this);
         if(_curHealth <= 0 && !dead)
         {
@@ -52,7 +55,18 @@ public class HealthBase : MonoBehaviour, IDamageable
         TakeDamage(damage);
     }
 
-    public float getCurHealth(){
+    public float GetCurHealth(){
         return _curHealth;
+    }
+
+    public void UpdateUI()
+    {
+        if(uiHealthUpdaters.Count > 0)
+        {
+            foreach (var item in uiHealthUpdaters)
+            {
+                item.UpdateValue(_curHealth/baseHealth);
+            }
+        }
     }
 }

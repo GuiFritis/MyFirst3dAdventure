@@ -32,6 +32,11 @@ namespace Items
             itemsSetup.Find(i => i.itemType == type).soInt.Value += amount;
         }
 
+        public ItemSetup GetItemByType(ItemType type)
+        {
+            return itemsSetup.Find(i => i.itemType == type);
+        }
+
         public void RemoveByType(ItemType type, int amount = 1)
         {
             if(amount < 0)
