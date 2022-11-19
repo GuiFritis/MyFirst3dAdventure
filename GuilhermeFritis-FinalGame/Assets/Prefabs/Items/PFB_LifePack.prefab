@@ -62,8 +62,8 @@ MonoBehaviour:
   itemType: 1
   playerTag: Player
   collectParticleSystem: {fileID: 0}
-  hideDelay: 1
-  collider: {fileID: 0}
+  hideDelay: 0.2
+  collider: {fileID: 6340575777059847847}
   audioSorce: {fileID: 0}
 --- !u!1 &6575019897344925060
 GameObject:

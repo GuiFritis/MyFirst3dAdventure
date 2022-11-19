@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Actions;
 
 namespace Items
 {
@@ -10,6 +11,7 @@ namespace Items
     {
         public Image uiIcon;
         public TextMeshProUGUI uiText;
+        public TextMeshProUGUI uiActionKey;
 
         private ItemSetup _curSetup;
 
@@ -24,6 +26,10 @@ namespace Items
         public void UpdateUI()
         {
             uiIcon.sprite = _curSetup.icon;
+            if(_curSetup.action != null)
+            {
+                uiActionKey.text = _curSetup.action.inputAction.action.bindings[0].ToDisplayString();
+            }
         }
 
         void UpdateText(int value)

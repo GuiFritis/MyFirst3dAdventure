@@ -26,14 +26,26 @@ namespace Enemy
         {
             base.WakeUp(player);
             
-            gunBase.StartShoot();
+            if(gunBase != null)
+            {
+                gunBase.StartShoot();
+            }
         }
 
         public override void Sleep()
         {
             base.Sleep();
 
+            if(gunBase != null)
+            {
+                gunBase.StopShoot();
+            }
+        }
+
+        private void OnDestroy() 
+        {
             gunBase.StopShoot();
+            gunBase.SetActiveWeapon(false);
         }
     }
 }

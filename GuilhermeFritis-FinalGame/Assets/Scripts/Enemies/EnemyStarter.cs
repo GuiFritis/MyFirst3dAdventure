@@ -17,7 +17,10 @@ public class EnemyStarter : MonoBehaviour
     {
         foreach (var item in enemies)
         {
-            item.WakeUp(player);
+            if(item != null)
+            {
+                item.WakeUp(player);
+            }
         }
     }
 
@@ -25,7 +28,10 @@ public class EnemyStarter : MonoBehaviour
     {
         foreach (var item in enemies)
         {
-            item.Sleep();
+            if(item != null)
+            {
+                item.Sleep();
+            }
         }
     }
 

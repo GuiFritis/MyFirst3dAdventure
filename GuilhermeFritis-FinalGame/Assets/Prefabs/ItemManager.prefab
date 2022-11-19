@@ -44,10 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ce12eefb0482348b56a3c10b964c53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coins: {fileID: 0}
-  energy: {fileID: 0}
   itemsSetup:
   - itemType: 0
     soInt: {fileID: 11400000, guid: 361845a2f800f7544b0f4d9f10a1220c, type: 2}
+    icon: {fileID: 21300000, guid: de085835d504f71449418b1ac8036134, type: 3}
+    action: {fileID: 0}
   - itemType: 1
     soInt: {fileID: 11400000, guid: 391579e4642872e40bb6506d1fc2869f, type: 2}
+    icon: {fileID: 21300000, guid: 25dbf57c2cdc7b04eb0331f7faebb891, type: 3}
+    action: {fileID: 0}

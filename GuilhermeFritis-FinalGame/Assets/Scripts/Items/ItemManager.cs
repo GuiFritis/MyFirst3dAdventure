@@ -60,6 +60,7 @@ namespace Items
         public ItemType itemType;
         public SOInt soInt;
         public Sprite icon;
+        public Actions.ActionBase action;
 
     }
 }
