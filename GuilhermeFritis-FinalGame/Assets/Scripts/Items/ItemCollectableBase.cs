@@ -8,7 +8,6 @@ public class ItemCollectableBase : MonoBehaviour
     public string playerTag = "Player";
     public ParticleSystem collectParticleSystem;
     public float hideDelay = 1f;
-    public SpriteRenderer collectableSprite;
     public Collider collider;
     
     [Header("Sounds")]
