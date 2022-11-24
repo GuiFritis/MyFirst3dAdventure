@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82e2e1c7b39f4e4a8d07b48796eadc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputAction: {fileID: 1570999969195044331, guid: 59cae43adea1fe54ea088be4a44aef05, type: 3}
   animator: {fileID: 1761640351}
   triggerOpen: Open
   notification: {fileID: 1139850464}

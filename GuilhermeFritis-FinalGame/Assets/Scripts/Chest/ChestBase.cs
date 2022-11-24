@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using DG.Tweening;
 
 public class ChestBase : MonoBehaviour
 {
+    public InputActionReference inputAction;
     public Animator animator;
     public string triggerOpen = "Open";
-
     [Header("Notification")]
     public SpriteRenderer notification;
     public SOAnimation notificationJump;
@@ -13,6 +14,7 @@ public class ChestBase : MonoBehaviour
     public float notificationFadeDuration = 0.4f;
 
     protected float _notificationFinalYPos;
+    protected bool _usable = true;
 
     void OnValidate()
     {
@@ -23,26 +25,36 @@ public class ChestBase : MonoBehaviour
     {
         _notificationFinalYPos = notification.transform.position.y;
         notification.transform.position = transform.position;
+
+        inputAction.asset.Enable();
     }
 
-    private void OpenChest()
+    private void OpenChest(InputAction.CallbackContext ctx)
     {
-        animator.SetTrigger(triggerOpen);
+        if(notification.gameObject.activeSelf && _usable)
+        {
+            animator.SetTrigger(triggerOpen);
+            _usable = false;
+            HideNotification();
+            inputAction.action.performed -= OpenChest;
+        }
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && _usable)
         {   
-            ShowNotification();
+            ShowNotification();            
+            inputAction.action.performed += OpenChest;
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && _usable)
         {   
             HideNotification();
+            inputAction.action.performed -= OpenChest;
         }
     }
 
