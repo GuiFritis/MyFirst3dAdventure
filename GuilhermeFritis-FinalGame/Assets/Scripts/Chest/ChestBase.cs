@@ -7,11 +7,14 @@ public class ChestBase : MonoBehaviour
     public InputActionReference inputAction;
     public Animator animator;
     public string triggerOpen = "Open";
+    public float showItemsDelay = 0.4f;
     [Header("Notification")]
     public SpriteRenderer notification;
     public SOAnimation notificationJump;
     public SOAnimation notificationSpin;
     public float notificationFadeDuration = 0.4f;
+    [Space]
+    public ChestItemBase chestItem;
 
     protected float _notificationFinalYPos;
     protected bool _usable = true;
@@ -37,6 +40,7 @@ public class ChestBase : MonoBehaviour
             _usable = false;
             HideNotification();
             inputAction.action.performed -= OpenChest;
+            Invoke(nameof(ShowItem), showItemsDelay);
         }
     }
 
@@ -84,5 +88,16 @@ public class ChestBase : MonoBehaviour
         notification.transform.DOMoveY(transform.position.y, notificationJump.duration);
 
         notification.DOFade(0f, notificationFadeDuration);
+    }
+
+    private void ShowItem()
+    {
+        chestItem?.ShowItem();
+        Invoke(nameof(CollectItem), showItemsDelay);
+    }
+
+    private void CollectItem()
+    {
+        chestItem?.Collect();
     }
 }

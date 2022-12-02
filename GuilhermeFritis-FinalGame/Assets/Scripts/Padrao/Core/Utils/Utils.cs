@@ -29,10 +29,21 @@ namespace Padrao.Core.Utils
             return arr[Random.Range(0, arr.Length)];
         }
 
-        public static Vector3 RandowPositionAround(this Vector3 position)
+        public static Vector3 RandowPositionAround2D(this Vector3 position, float maxDistance = 1.5f)
         {
-            position.x += Random.Range(-1.5f, 1.5f);
-            position.y += Random.Range(-1.5f, 1.5f);
+            position.x += Random.Range(-maxDistance, maxDistance);
+            position.z += Random.Range(-maxDistance, maxDistance);
+            return position;
+        }
+
+        public static Vector3 RandowPositionAround3D(this Vector3 position, float maxDistance = 1.5f, bool useY = false)
+        {
+            position.x += Random.Range(-maxDistance, maxDistance);
+            if(useY)
+            {
+                position.y += Random.Range(-maxDistance, maxDistance);
+            }
+            position.z += Random.Range(-maxDistance, maxDistance);
             return position;
         }
 
