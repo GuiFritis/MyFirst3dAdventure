@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f76787c2fc8875c47bc5285ec083c64b, type: 3}
   m_Name: SO_TreeShake
   m_EditorClassIdentifier: 
-  value: 1
-  duration: 0.5
+  value: 5
+  duration: 0.15
   delay: 0
-  ease: 33
+  ease: 30
   loops: 0
   loopType: 0

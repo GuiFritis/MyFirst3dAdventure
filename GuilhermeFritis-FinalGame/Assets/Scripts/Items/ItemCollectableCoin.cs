@@ -11,7 +11,10 @@ namespace Items
         private void Start() 
         {
             hideDelay = collectingMoveY.duration + collectingMoveY.delay;
-            coinFloat.DGAnimate(transform.DOMoveY(coinFloat.value, coinFloat.duration));
+            if(coinFloat != null)
+            {
+                coinFloat.DGAnimate(transform.DOMoveY(coinFloat.value, coinFloat.duration));
+            }
         }
 
         protected override void Collect()
