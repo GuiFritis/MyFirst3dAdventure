@@ -7,12 +7,14 @@ public class DestructableBase : MonoBehaviour
 {
     public HealthBase health;
     public SOAnimation hitShake;
-    public int dropCoinsAmount = 10;
+    public int minDropCoinsAmount = 1;
+    public int maxDropCoinsAmount = 10;
     public GameObject coinPFB;
     public float relativeDropHeight = 2f;
     public MeshFilter treeMeshFilter;
     public Mesh deadTreeMesh;
-
+    
+    private float _dropCoinsAmount;
 
     void OnValidate()
     {
@@ -24,6 +26,7 @@ public class DestructableBase : MonoBehaviour
 
     void Start()
     {
+        _dropCoinsAmount = Random.Range(minDropCoinsAmount, maxDropCoinsAmount);
         health.OnDamage += OnHit;
     }
 
@@ -35,7 +38,7 @@ public class DestructableBase : MonoBehaviour
 
     private void DropCoins()
     {
-        if(dropCoinsAmount > 0)
+        if(_dropCoinsAmount > 0)
         {
             if(Random.Range(0, 2) == 0)
             {
@@ -43,7 +46,7 @@ public class DestructableBase : MonoBehaviour
                 coin.transform.position = transform.position.RandowPositionAround3D(4f);
                 coin.transform.position += Vector3.up * relativeDropHeight;
                 coin.transform.DOScale(0, 0.2f).From();
-                dropCoinsAmount--;
+                _dropCoinsAmount--;
             }
         } 
         else

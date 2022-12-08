@@ -66,7 +66,7 @@ MonoBehaviour:
   playerTag: Player
   collectParticleSystem: {fileID: 0}
   hideDelay: 1
-  collider: {fileID: 8508155078886903631}
+  collider: {fileID: 4108980086149496973}
   audioSorce: {fileID: 0}
   collectingMoveY: {fileID: 11400000, guid: 04ac222d8cd138a46a95310578c53c40, type: 2}
   coinFloat: {fileID: 0}
@@ -113,6 +113,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDistance: 0.4
   speed: 1
+  killTweensOnActivate: 1
+  collider: {fileID: 8508155078886903631}
 --- !u!1001 &8508155078664245565
 PrefabInstance:
   m_ObjectHideFlags: 0
