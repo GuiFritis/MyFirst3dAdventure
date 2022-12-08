@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4619375830259359637}
   - component: {fileID: 4619375830259359636}
   - component: {fileID: 3147343573067940562}
+  - component: {fileID: 7611596611062432113}
   m_Layer: 0
   m_Name: PFB_Coin
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4619375830259359634}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 147.87933, y: -17.113876, z: -28.80754}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -59,6 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5893376e49f3a1438b4d4b80634cbbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 0
   playerTag: Player
   collectParticleSystem: {fileID: 0}
   hideDelay: 1
@@ -66,6 +68,20 @@ MonoBehaviour:
   audioSorce: {fileID: 0}
   collectingMoveY: {fileID: 11400000, guid: 04ac222d8cd138a46a95310578c53c40, type: 2}
   coinFloat: {fileID: 11400000, guid: c0336383d1899a342b1f96fe5cb419d4, type: 2}
+--- !u!114 &7611596611062432113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4619375830259359634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06189b7732b8f284a8e5b9a5dff06278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 0.4
+  speed: 1
 --- !u!1001 &4619375829911650790
 PrefabInstance:
   m_ObjectHideFlags: 0

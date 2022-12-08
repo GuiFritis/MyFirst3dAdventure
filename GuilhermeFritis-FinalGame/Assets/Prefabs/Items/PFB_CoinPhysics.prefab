@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2136329572542435849}
   - component: {fileID: 6891272230133082650}
   - component: {fileID: 4108980086149496973}
+  - component: {fileID: -5429130964573852728}
   m_Layer: 0
   m_Name: PFB_CoinPhysics
   m_TagString: Untagged
@@ -98,6 +99,20 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.07
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-5429130964573852728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8508155078886903625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06189b7732b8f284a8e5b9a5dff06278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minDistance: 0.4
+  speed: 1
 --- !u!1001 &8508155078664245565
 PrefabInstance:
   m_ObjectHideFlags: 0
