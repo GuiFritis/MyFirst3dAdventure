@@ -4,6 +4,7 @@ using Padrao.StateMachine;
 using NaughtyAttributes;
 using System.Collections.Generic;
 using Padrao.Core.Singleton;
+using System.Collections;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(HealthBase))]
@@ -188,6 +189,18 @@ public class Player : Singleton<Player>
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawLine(transform.position, transform.position + (Vector3.down * fallHeight));
+    }
+
+    public void ChangeSpeed(float speedMultiplier, float duration)
+    {
+        StartCoroutine(ChangeSpeedCoroutine(speedMultiplier, duration));
+    }
+
+    private IEnumerator ChangeSpeedCoroutine(float speedMultiplier, float duration)
+    {
+        speed *= speedMultiplier;
+        yield return new WaitForSeconds(duration);
+        speed /= speedMultiplier;
     }
 
 }
