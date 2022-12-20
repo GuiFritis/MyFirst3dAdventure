@@ -5,6 +5,7 @@ using NaughtyAttributes;
 using System.Collections.Generic;
 using Padrao.Core.Singleton;
 using System.Collections;
+using Clothing;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(HealthBase))]
@@ -46,6 +47,9 @@ public class Player : Singleton<Player>
     public StateMachine<PlayerStates> stateMachine;
     [Header("Flash")]
     public List<FlashColor> flashColors;
+    [Header("Clothing")]
+    [SerializeField]
+    private ClothingChanger _clothChanger;
 
     private Vector3 _directionVector = Vector3.zero;
     private bool _grounded = true;
@@ -201,6 +205,18 @@ public class Player : Singleton<Player>
         speed *= speedMultiplier;
         yield return new WaitForSeconds(duration);
         speed /= speedMultiplier;
+    }
+
+    public void ChangeTexture(ClothingSetup setup, float duration)
+    {
+        StartCoroutine(ChangeTextureCoroutine(setup, duration));
+    }
+
+    private IEnumerator ChangeTextureCoroutine(ClothingSetup setup, float duration)
+    {
+        _clothChanger.ChangeTexture(setup);
+        yield return new WaitForSeconds(duration);
+        _clothChanger.ResetTexture();
     }
 
 }

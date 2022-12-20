@@ -6007,8 +6007,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a00bf9847005094e8a762b4244c2c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clothSetups:
-  - clothType: 0
+  clothingSetups:
+  - clothingType: 0
     texture: {fileID: 0}
 --- !u!1001 &897268163
 PrefabInstance:
@@ -15185,7 +15185,7 @@ GameObject:
   - component: {fileID: 2030204758}
   - component: {fileID: 2030204757}
   m_Layer: 0
-  m_Name: PFB_ClothSpeed
+  m_Name: PFB_ClothingSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15234,8 +15234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clothType: 0
   playerTag: Player
-  speedMultiplier: 1.2
   duration: 3
+  speedMultiplier: 1.2
 --- !u!1001 &2035381649
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15615,6 +15615,7 @@ MonoBehaviour:
   - {fileID: 538734060}
   - {fileID: 1296518500}
   - {fileID: 1947020520}
+  _clothChanger: {fileID: 1814513470}
 --- !u!4 &2071947525
 Transform:
   m_ObjectHideFlags: 0

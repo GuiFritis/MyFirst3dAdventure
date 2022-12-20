@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace Clothing {
-    public class ClothItemBase : MonoBehaviour
+    public class ClothingItemBase : MonoBehaviour
     {
-        public ClothType clothType;
+        public ClothingType clothType;
         public string playerTag = "Player";
+        public float duration = 3f;
 
         void OnTriggerEnter(Collider collision)
         {
@@ -17,6 +18,10 @@ namespace Clothing {
 
         public virtual void Collect()
         {
+            var setup = ClothingManager.Instance.GetSetupByType(clothType);
+
+            Player.Instance.ChangeTexture(setup, duration);
+
             HideObject();
         }
 

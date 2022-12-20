@@ -4,15 +4,15 @@ using UnityEngine;
 
 namespace Clothing 
 {
-    public class ClothItemSpeed : ClothItemBase
+    public class ClothingItemSpeed : ClothingItemBase
     {
         [Header("Speed Cloth")]
         public float speedMultiplier = 1.2f;
-        public float duration = 3f;
 
         public override void Collect()
         {
             base.Collect();
+
             Player.Instance.ChangeSpeed(speedMultiplier, duration);
         }
     }
