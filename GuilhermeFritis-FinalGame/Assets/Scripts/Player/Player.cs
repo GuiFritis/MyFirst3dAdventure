@@ -54,6 +54,7 @@ public class Player : Singleton<Player>
     private Vector3 _directionVector = Vector3.zero;
     private bool _grounded = true;
     private float _vSpeed = 0f;
+    private float _jumpForceMultiplier = 1f;
 
     #region LIFE
     private void TakeDamage(HealthBase hp)
@@ -177,7 +178,7 @@ public class Player : Singleton<Player>
     }
 
     public void Jump(){
-        _vSpeed = jumpForce;
+        _vSpeed = jumpForce * _jumpForceMultiplier;
         animator.SetTrigger("Jump");
     }
 
@@ -205,6 +206,18 @@ public class Player : Singleton<Player>
         speed *= speedMultiplier;
         yield return new WaitForSeconds(duration);
         speed /= speedMultiplier;
+    }
+
+    public void ChangeJumpForce(float jumpForceMultiplier, float duration)
+    {
+        StartCoroutine(ChangeJumpForceCoroutine(jumpForceMultiplier, duration));
+    }
+
+    private IEnumerator ChangeJumpForceCoroutine(float jumpForceMultiplier, float duration)
+    {
+        _jumpForceMultiplier *= jumpForceMultiplier;
+        yield return new WaitForSeconds(duration);
+        _jumpForceMultiplier /= jumpForceMultiplier;
     }
 
     public void ChangeTexture(ClothingSetup setup, float duration)

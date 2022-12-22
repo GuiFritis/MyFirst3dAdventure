@@ -9,7 +9,8 @@ namespace Clothing
     public enum ClothingType
     {
         SPEED,
-        JUMP_HEIGHT
+        JUMP_HEIGHT,
+        STRENGTH
     }
 
     public class ClothingManager : Singleton<ClothingManager>

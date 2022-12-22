@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class HealthBase : MonoBehaviour, IDamageable
     public bool destroyOnDeath = false;
     public float baseHealth = 10f;
     public List<UIFillUpdater> uiHealthUpdaters;
+    public float damageMultiplier = 1f;
 
     private float _curHealth;
     private bool dead = false;
@@ -41,7 +43,7 @@ public class HealthBase : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
-        _curHealth -= damage;
+        _curHealth -= damage * damageMultiplier;
         UpdateUI();
         OnDamage?.Invoke(this);
         if(_curHealth <= 0 && !dead)
@@ -68,5 +70,22 @@ public class HealthBase : MonoBehaviour, IDamageable
                 item.UpdateValue(_curHealth/baseHealth);
             }
         }
+    }
+
+    public void ResetResistance()
+    {
+        damageMultiplier = 1f;
+    }
+
+    public void IncreaseResistance(float damageResistance, float duration)
+    {
+        StartCoroutine(IncreaseResistanceCoroutine(damageResistance, duration));
+    }
+
+    private IEnumerator IncreaseResistanceCoroutine(float damageResistance, float duration)
+    {
+        damageMultiplier += damageResistance;
+        yield return new WaitForSeconds(duration);
+        damageMultiplier -= damageResistance;
     }
 }
