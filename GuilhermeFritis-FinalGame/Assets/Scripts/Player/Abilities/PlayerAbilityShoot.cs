@@ -7,6 +7,7 @@ public class PlayerAbilityShoot : PlayerAbilityBase
 {
     public List<GunBase> gunBases;
     public Transform gunPos;
+    public FlashColor gunFlash;
 
     private int _curGun;
     private List<GunBase> _instantiatedGuns = new List<GunBase>();
@@ -46,6 +47,7 @@ public class PlayerAbilityShoot : PlayerAbilityBase
 
     private void ChangeWeapon(int index)
     {
+        _instantiatedGuns[_curGun].OnShoot -= FlashGun;
         _instantiatedGuns[_curGun].SetActiveWeapon(false);
         if(_instantiatedGuns[_curGun] is GunShootLimit shootLimit)
         {
@@ -53,6 +55,7 @@ public class PlayerAbilityShoot : PlayerAbilityBase
         }
         _curGun = index;
         _instantiatedGuns[_curGun].SetActiveWeapon(true);
+        _instantiatedGuns[_curGun].OnShoot += FlashGun;
     }
 
     private void RotateWeapon(float value)
@@ -69,5 +72,13 @@ public class PlayerAbilityShoot : PlayerAbilityBase
         } 
 
         ChangeWeapon(finalValue);
+    }
+
+    private void FlashGun()
+    {
+        if(gunFlash != null)
+        {
+            gunFlash.Flash();
+        }
     }
 }

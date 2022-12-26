@@ -38,10 +38,8 @@ public class Player : Singleton<Player>
     public float jumpForce = 20f;
     [Foldout("Movement")]
     public string animWalk = "WALKING";
-
     public float gravity = -9.8f;
     public float fallHeight = 0.2f;
-
     public LayerMask groundLayers;
 
     public StateMachine<PlayerStates> stateMachine;
@@ -62,7 +60,7 @@ public class Player : Singleton<Player>
         EffectsManager.Instance.ChangeVignette();
         foreach (var item in flashColors)   
         {
-            item.Flash(Color.red);
+            item.FlashToColor(Color.red);
         }
         ShakeCamera.Instance.Shake(5, 5, 0.15f);
     }

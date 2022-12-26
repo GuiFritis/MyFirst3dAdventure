@@ -108,7 +108,7 @@ namespace Enemy
         {
             if(flashColor != null)
             {
-                flashColor.Flash(Color.white);
+                flashColor.FlashToColor(Color.white);
             }
             if(hit_VFX != null)
             {

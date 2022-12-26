@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class GunBase : MonoBehaviour
     public Transform shootPos;
     public float fireRate = 0.2f;
     public float projetileSpeed = 50f;
+    public Action OnShoot;
 
     private Coroutine _shootCoroutine;
     protected bool _activeWeapon;
@@ -25,6 +27,7 @@ public class GunBase : MonoBehaviour
     {
         var projectile = Instantiate(prefabProjectile, shootPos.position, shootPos.rotation);
         projectile.speed = projetileSpeed;
+        OnShoot?.Invoke();
     }
 
     public void StartShoot()
