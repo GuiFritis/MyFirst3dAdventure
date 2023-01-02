@@ -6,6 +6,7 @@ public class ChestBase : MonoBehaviour
 {
     public InputActionReference inputAction;
     public Animator animator;
+    public ParticleSystem openVfx;
     public string triggerOpen = "Open";
     public float showItemsDelay = 0.4f;
     [Header("Notification")]
@@ -36,6 +37,7 @@ public class ChestBase : MonoBehaviour
     {
         if(notification.gameObject.activeSelf && _usable)
         {
+            openVfx?.Play();
             animator.SetTrigger(triggerOpen);
             _usable = false;
             HideNotification();
