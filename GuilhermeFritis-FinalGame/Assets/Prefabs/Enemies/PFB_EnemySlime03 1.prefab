@@ -75,7 +75,7 @@ MonoBehaviour:
   startAnimEase: 27
   startWithAnim: 1
   lookAtPlayer: 1
-  lookRotation: 2
+  lookRotation: 0.9
   damage: 1
   _animationBase: {fileID: 8713999728386451467}
   gunBase: {fileID: 8245095160739431410}
@@ -116,6 +116,8 @@ MonoBehaviour:
   meshRenderer: {fileID: 5941394988068469861}
   skinnedMeshRenderer: {fileID: 0}
   duration: 0.1
+  colorParameter: _EmissionColor
+  targetColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!54 &336356834515521405
 Rigidbody:
   m_ObjectHideFlags: 0
