@@ -155,27 +155,34 @@ public class Player : Singleton<Player>
         }
     }
 
-    public void Move(){
-        if(_directionVector.y < 0.5f && !charController.isGrounded && !Physics.Raycast(transform.position, Vector3.down, fallHeight, groundLayers)){
-                animator.SetBool("Falling", true);
+    public void Move()
+    {
+        if(!charController.isGrounded)// && !Physics.Raycast(transform.position, Vector3.down, fallHeight, groundLayers)){
+        {    
+            animator.SetBool("Falling", true);
         }
         charController.Move(_directionVector * Time.deltaTime);
     }
 
-    private void CheckJump(){
-        if(charController.isGrounded || Physics.Raycast(transform.position, Vector3.down, fallHeight, groundLayers)){
+    private void CheckJump()
+    {
+        if(charController.isGrounded)// || Physics.Raycast(transform.position, Vector3.down, fallHeight, groundLayers))
+        {
             animator.SetBool("Falling", false);
             _vSpeed = 0f;
-            if(_directionVector.magnitude == 0){
+            if(_directionVector.magnitude == 0)
+            {
                 stateMachine.SwitchState(PlayerStates.IDLE);
             }
-            if(Input.GetKeyDown(KeyCode.Space)){
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
                 stateMachine.SwitchState(PlayerStates.JUMPING);
             }
         }
     }
 
-    public void Jump(){
+    public void Jump()
+    {
         _vSpeed = jumpForce * _jumpForceMultiplier;
         animator.SetTrigger("Jump");
     }

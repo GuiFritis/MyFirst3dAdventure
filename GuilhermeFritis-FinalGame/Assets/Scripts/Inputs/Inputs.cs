@@ -80,6 +80,15 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ControlCamera"",
+                    ""type"": ""Button"",
+                    ""id"": ""e20bb00a-0923-4225-bd37-477978112d3d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -159,6 +168,17 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""action"": ""Use"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""53f8ee98-c4b4-45ee-bc46-6204f6118277"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControlCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -173,6 +193,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         m_Gameplay_RotateWeapon = m_Gameplay.FindAction("RotateWeapon", throwIfNotFound: true);
         m_Gameplay_LifePack = m_Gameplay.FindAction("LifePack", throwIfNotFound: true);
         m_Gameplay_Use = m_Gameplay.FindAction("Use", throwIfNotFound: true);
+        m_Gameplay_ControlCamera = m_Gameplay.FindAction("ControlCamera", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -238,6 +259,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_RotateWeapon;
     private readonly InputAction m_Gameplay_LifePack;
     private readonly InputAction m_Gameplay_Use;
+    private readonly InputAction m_Gameplay_ControlCamera;
     public struct GameplayActions
     {
         private @Inputs m_Wrapper;
@@ -248,6 +270,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         public InputAction @RotateWeapon => m_Wrapper.m_Gameplay_RotateWeapon;
         public InputAction @LifePack => m_Wrapper.m_Gameplay_LifePack;
         public InputAction @Use => m_Wrapper.m_Gameplay_Use;
+        public InputAction @ControlCamera => m_Wrapper.m_Gameplay_ControlCamera;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -275,6 +298,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @Use.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUse;
                 @Use.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUse;
                 @Use.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUse;
+                @ControlCamera.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnControlCamera;
+                @ControlCamera.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnControlCamera;
+                @ControlCamera.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnControlCamera;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -297,6 +323,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @Use.started += instance.OnUse;
                 @Use.performed += instance.OnUse;
                 @Use.canceled += instance.OnUse;
+                @ControlCamera.started += instance.OnControlCamera;
+                @ControlCamera.performed += instance.OnControlCamera;
+                @ControlCamera.canceled += instance.OnControlCamera;
             }
         }
     }
@@ -309,5 +338,6 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         void OnRotateWeapon(InputAction.CallbackContext context);
         void OnLifePack(InputAction.CallbackContext context);
         void OnUse(InputAction.CallbackContext context);
+        void OnControlCamera(InputAction.CallbackContext context);
     }
 }

@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Animation;
 using NaughtyAttributes;
+using System;
 
 namespace Enemy
 {
@@ -23,6 +22,8 @@ namespace Enemy
         [ShowIf("lookAtPlayer")]
         public float lookRotation = 0.1f;
         public float damage = 1f;
+        [Header("Events")]
+        public Action<EnemyBase> OnKill;
 
         [SerializeField]
         private AnimationBase _animationBase;
@@ -102,6 +103,7 @@ namespace Enemy
             {
                 Destroy(gameObject, 2);
             }
+            OnKill?.Invoke(this);
         }
 
         protected virtual void OnDamage(float damage)
