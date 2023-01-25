@@ -63,6 +63,7 @@ public class Player : Singleton<Player>
             item.FlashToColor(Color.red);
         }
         ShakeCamera.Instance.Shake(5, 5, 0.15f);
+        Save.SaveManager.Instance.SaveHealth();
     }
 
     private void Death(HealthBase hp)

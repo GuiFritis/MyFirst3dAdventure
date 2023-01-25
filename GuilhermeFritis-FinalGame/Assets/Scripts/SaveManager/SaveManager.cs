@@ -12,6 +12,7 @@ namespace Save
 
         protected override void Awake()
         {
+            base.Awake();
             _saveSetup = new SaveSetup{
                 lastLevel = 0,
                 playerName = "Gui"
@@ -27,10 +28,23 @@ namespace Save
             SaveFile(jsonSetup);
         }
 
+        public void SaveItems()
+        {
+            _saveSetup.coins = Items.ItemManager.Instance.GetItemByType(Items.ItemType.COIN).soInt.Value;
+            _saveSetup.lifePack = Items.ItemManager.Instance.GetItemByType(Items.ItemType.LIFE_PACK).soInt.Value;
+            Save();
+        }
+
+        public void SaveHealth()
+        {
+            _saveSetup.health = Player.Instance.health.GetCurHealth();
+            Save();
+        }
+
         public void SaveLastLevel(int level)
         {
             _saveSetup.lastLevel = level;
-            Save();
+            SaveItems();
         }
 
         public void SaveName(string name)
@@ -53,5 +67,9 @@ namespace Save
     {
         public int lastLevel;
         public string playerName;
+        public int coins;
+        public int lifePack;
+        public float health;
+
     }
 }
