@@ -157,7 +157,7 @@ public class Player : Singleton<Player>
 
     public void Move()
     {
-        if(!charController.isGrounded)// && !Physics.Raycast(transform.position, Vector3.down, fallHeight, groundLayers)){
+        if(_directionVector.y < 0.5f && !charController.isGrounded)// && !Physics.Raycast(transform.position, Vector3.down, fallHeight, groundLayers)){
         {    
             animator.SetBool("Falling", true);
         }

@@ -16,6 +16,7 @@ namespace Save
                 lastLevel = 0,
                 playerName = "Gui"
             };
+            DontDestroyOnLoad(gameObject);
         }
 
         #region SAVE
