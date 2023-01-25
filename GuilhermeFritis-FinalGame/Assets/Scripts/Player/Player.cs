@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Padrao.Core.Singleton;
 using System.Collections;
 using Clothing;
+using Save;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(HealthBase))]
@@ -63,7 +64,6 @@ public class Player : Singleton<Player>
             item.FlashToColor(Color.red);
         }
         ShakeCamera.Instance.Shake(5, 5, 0.15f);
-        Save.SaveManager.Instance.SaveHealth();
     }
 
     private void Death(HealthBase hp)
@@ -133,6 +133,13 @@ public class Player : Singleton<Player>
         stateMachine.statesDictionary.Add(PlayerStates.JUMPING, new PlayerJumping());
 
         stateMachine.SwitchState(PlayerStates.IDLE);
+
+        SaveManager.Instance.OnGameLoaded += OnLoad;
+    }
+
+    private void OnLoad(SaveSetup saveSetup)
+    {
+        health.ResetLife(saveSetup.health);
     }
 
     private void Rotate(){

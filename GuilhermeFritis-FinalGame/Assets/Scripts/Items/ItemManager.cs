@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Padrao.Core.Singleton;
 using UnityEngine;
+using Save;
 
 namespace Items 
 {
@@ -17,6 +18,13 @@ namespace Items
         void Start()
         {
             Reset();
+            SaveManager.Instance.OnGameLoaded += OnLoad;
+        }
+
+        private void OnLoad(SaveSetup saveSetup)
+        {
+            AddByType(ItemType.COIN, saveSetup.coins);
+            AddByType(ItemType.LIFE_PACK, saveSetup.lifePack);
         }
 
         private void Reset()

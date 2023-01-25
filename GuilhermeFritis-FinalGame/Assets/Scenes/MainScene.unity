@@ -367,7 +367,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2052052, y: 1}
+    m_SensorSize: {x: 2.2007992, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -949,7 +949,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2052052, y: 1}
+    m_SensorSize: {x: 2.2007992, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1369,6 +1369,7 @@ Transform:
   - {fileID: 867292150}
   - {fileID: 122664284}
   - {fileID: 1198737826}
+  - {fileID: 515889262024102846}
   - {fileID: 77784758}
   - {fileID: 807765525}
   - {fileID: 855513979}
@@ -1386,7 +1387,6 @@ Transform:
   - {fileID: 1638737364}
   - {fileID: 1942738932}
   - {fileID: 1167757095}
-  - {fileID: 515889262024102846}
   - {fileID: 40585166}
   - {fileID: 537868307}
   - {fileID: 672412590}
@@ -1748,7 +1748,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2052052, y: 1}
+    m_SensorSize: {x: 2.2007992, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3021,7 +3021,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2052052, y: 1}
+    m_SensorSize: {x: 2.2007992, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -3964,7 +3964,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2052052, y: 1}
+    m_SensorSize: {x: 2.2007992, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4774,7 +4774,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2052052, y: 1}
+    m_SensorSize: {x: 2.2007992, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -15357,7 +15357,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.2052052, y: 1}
+    m_SensorSize: {x: 2.2007992, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -16164,7 +16164,7 @@ Transform:
   - {fileID: 1951012092}
   - {fileID: 661021787}
   m_Father: {fileID: 160361697}
-  m_RootOrder: 49
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &593303260254824060
 SpriteRenderer:
@@ -28562,6 +28562,14 @@ PrefabInstance:
     - target: {fileID: 1889200205027439898, guid: 0248b64b1acdd2c46a367b6d531053b2, type: 3}
       propertyPath: m_Name
       value: PFB_EndGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 1889200205027439898, guid: 0248b64b1acdd2c46a367b6d531053b2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7675328570647670596, guid: 0248b64b1acdd2c46a367b6d531053b2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0248b64b1acdd2c46a367b6d531053b2, type: 3}

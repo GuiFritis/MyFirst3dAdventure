@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 325350773}
   - component: {fileID: 325350772}
   m_Layer: 5
-  m_Name: SaveButton
+  m_Name: LoadButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,13 +493,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2019722442}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 8051184325279512446}
+        m_TargetAssemblyTypeName: Save.SaveManager, Assembly-CSharp
+        m_MethodName: Load
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1433,7 +1433,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Save
+  m_text: Delete Save
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2015,6 +2015,7 @@ GameObject:
   - component: {fileID: 1147693254}
   - component: {fileID: 1147693253}
   - component: {fileID: 1147693252}
+  - component: {fileID: 1147693256}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -2149,6 +2150,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147693250}
   m_CullTransparentMesh: 1
+--- !u!114 &1147693256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147693250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed04058d46b29d34cb95aeaca4dd3bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiTextName: {fileID: 572365612}
 --- !u!1 &1149129668
 GameObject:
   m_ObjectHideFlags: 0
@@ -4585,11 +4599,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2019722442 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8051184326212645815, guid: 827b1ed517a108f4399b755bfc4de28a, type: 3}
-  m_PrefabInstance: {fileID: 8051184325279512445}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8051184325279512445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4647,3 +4656,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 827b1ed517a108f4399b755bfc4de28a, type: 3}
+--- !u!114 &8051184325279512446 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8051184326212645814, guid: 827b1ed517a108f4399b755bfc4de28a, type: 3}
+  m_PrefabInstance: {fileID: 8051184325279512445}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3504766e0c5f56444ba76348b12fce82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -26,7 +26,12 @@ public class HealthBase : MonoBehaviour, IDamageable
 
     public void ResetLife()
     {
-        _curHealth = baseHealth;
+        ResetLife(baseHealth);
+    }
+
+    public void ResetLife(float life)
+    {
+        _curHealth = life;
         dead = false;
         UpdateUI();
     }

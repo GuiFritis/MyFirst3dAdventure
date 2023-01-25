@@ -24,7 +24,7 @@ public class EndGame : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter(Collider collision)
     {
         if(collision.transform.CompareTag(playerTag) && !_endGame){
             CallEndGame();
@@ -37,7 +37,9 @@ public class EndGame : MonoBehaviour
             item.SetActive(true);
             item.transform.DOScale(0, .3f).SetEase(Ease.OutBack).From();
         }
+
         SaveManager.Instance.SaveLastLevel(currentLevel);
+
         PlayWinSFX();
         uiEndGame.SetActive(true);
         uiInGame.SetActive(false);
