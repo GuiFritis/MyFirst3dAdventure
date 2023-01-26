@@ -15,15 +15,6 @@ public class HealthBase : MonoBehaviour, IDamageable
     private float _curHealth;
     private bool dead = false;
 
-    void Awake()
-    {
-        Init();
-    }
-
-    public void Init(){
-        ResetLife();
-    }
-
     public void ResetLife()
     {
         ResetLife(baseHealth);

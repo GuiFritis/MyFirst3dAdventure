@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Padrao.Core.Singleton;
 using Padrao.StateMachine;
+using Save;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -37,6 +38,13 @@ public class GameManager : Singleton<GameManager>
         stateMachine.RegisterStates(GameState.LOSE, new StateBase());
 
         stateMachine.SwitchState(GameState.INTRO);
+
+        SceneSetup();
+    }
+
+    private void SceneSetup()
+    {
+        SaveManager.Instance.Load();
     }
 
 }

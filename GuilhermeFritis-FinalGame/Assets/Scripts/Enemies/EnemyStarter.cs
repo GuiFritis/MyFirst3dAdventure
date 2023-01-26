@@ -3,6 +3,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using Enemy;
+using Boss;
 
 [RequireComponent(typeof(Collider))]
 public class EnemyStarter : MonoBehaviour
@@ -20,6 +21,11 @@ public class EnemyStarter : MonoBehaviour
         {
             item.OnKill += KillEnemy;
         }
+        var bosses = gameObject.GetComponentsInChildren<Boss.BossBase>().ToList();
+        foreach (var item in bosses)
+        {
+            item.OnKill += KillBoss;
+        }
     }
 
     public void WakeEnemies(GameObject player)
@@ -36,6 +42,16 @@ public class EnemyStarter : MonoBehaviour
     private void KillEnemy(EnemyBase enemy)
     {
         enemies.Remove((IWakeableEnemy) enemy);
+        if(enemies.Count == 0)
+        {
+            OnAllEnemiesKilled?.Invoke();
+            Destroy(gameObject, 2f);
+        }
+    }
+
+    private void KillBoss(BossBase boss)
+    {
+        enemies.Remove((IWakeableEnemy) boss);
         if(enemies.Count == 0)
         {
             OnAllEnemiesKilled?.Invoke();

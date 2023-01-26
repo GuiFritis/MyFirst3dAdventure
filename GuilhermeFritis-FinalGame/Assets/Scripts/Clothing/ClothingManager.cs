@@ -8,6 +8,7 @@ namespace Clothing
 {
     public enum ClothingType
     {
+        NONE,
         SPEED,
         JUMP_HEIGHT,
         STRENGTH

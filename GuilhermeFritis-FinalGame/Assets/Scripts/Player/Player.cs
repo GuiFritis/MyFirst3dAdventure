@@ -139,7 +139,15 @@ public class Player : Singleton<Player>
 
     private void OnLoad(SaveSetup saveSetup)
     {
-        health.ResetLife(saveSetup.health);
+        if(saveSetup.health > 0)
+        {
+            health.ResetLife(saveSetup.health);
+        } 
+        else 
+        {
+            health.ResetLife();
+        }
+        _clothChanger.ChangeTexture(ClothingManager.Instance.GetSetupByType(saveSetup.clothing));
     }
 
     private void Rotate(){
@@ -243,6 +251,11 @@ public class Player : Singleton<Player>
         _clothChanger.ChangeTexture(setup);
         yield return new WaitForSeconds(duration);
         _clothChanger.ResetTexture();
+    }
+
+    public ClothingType GetClothingType()
+    {
+        return _clothChanger.GetClothingType();
     }
 
 }

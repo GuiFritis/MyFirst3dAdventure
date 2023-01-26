@@ -29,6 +29,8 @@ namespace Boss{
         public int attackAmount = 5;
         public float timeBetweenAttacks = .5f;
         public HealthBase healthBase;
+        [Header("Events")]
+        public Action<BossBase> OnKill;
 
         private StateMachine<BossAction> stateMachine;
 
@@ -69,6 +71,7 @@ namespace Boss{
         private void BossDeath(HealthBase hb)
         {
             SwitchState(BossAction.DEATH);
+            OnKill?.Invoke(this);
         }
 
         #region WALK

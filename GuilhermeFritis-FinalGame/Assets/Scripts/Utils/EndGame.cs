@@ -8,8 +8,8 @@ using Save;
 public class EndGame : MonoBehaviour
 {
     public string playerTag = "Player";
-    public GameObject uiEndGame;
-    public GameObject uiInGame;
+    // public GameObject uiEndGame;
+    // public GameObject uiInGame;
     public List<GameObject> endGameObjects = new List<GameObject>();
     public AudioSource winSFX;
     public int currentLevel = 1;
@@ -41,8 +41,8 @@ public class EndGame : MonoBehaviour
         SaveManager.Instance.SaveLastLevel(currentLevel);
 
         PlayWinSFX();
-        uiEndGame.SetActive(true);
-        uiInGame.SetActive(false);
+        // uiEndGame.SetActive(true);
+        // uiInGame.SetActive(false);
         PauseManager.Instance.Pause();
     }
 

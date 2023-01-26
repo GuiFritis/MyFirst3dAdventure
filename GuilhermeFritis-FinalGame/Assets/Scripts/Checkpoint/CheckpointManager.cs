@@ -4,12 +4,25 @@ using UnityEngine;
 using Padrao.Core.Singleton;
 using TMPro;
 using DG.Tweening;
+using Save;
 
 public class CheckpointManager : Singleton<CheckpointManager>
 {
     public int lastCheckpoint = 0;
     public List<CheckpointBase> checkpoints = new List<CheckpointBase>();
     public TextMeshProUGUI checkpointSavedText;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        SaveManager.Instance.OnGameLoaded += OnLoad;
+    }
+
+    private void OnLoad(SaveSetup saveSetup)
+    {
+        lastCheckpoint = saveSetup.checkpoint;
+        Player.Instance.Respawn();
+    }
 
     public void SaveCheckpoint(int key)
     {
@@ -21,6 +34,7 @@ public class CheckpointManager : Singleton<CheckpointManager>
         {
             AnimateText();
         }
+        SaveManager.Instance.SaveCheckpoint(lastCheckpoint);
     }
 
     private void AnimateText()

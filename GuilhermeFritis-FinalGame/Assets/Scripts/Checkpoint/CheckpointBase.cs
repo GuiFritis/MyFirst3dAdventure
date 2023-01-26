@@ -11,6 +11,7 @@ public class CheckpointBase : MonoBehaviour
 
     private bool _isCheckpointActive = false;
     private string _checkpointKey = "checkpointKey";
+    private static float _checkpointCooldown = 7f;
 
     void Awake()
     {
@@ -62,5 +63,13 @@ public class CheckpointBase : MonoBehaviour
         // }
         CheckpointManager.Instance.SaveCheckpoint(key);
         _isCheckpointActive = true;
+        StartCoroutine(CheckpointCooldown());
+    }
+
+    private IEnumerator CheckpointCooldown()
+    {
+        yield return new WaitForSeconds(_checkpointCooldown);
+        _isCheckpointActive = false;
+
     }
 }

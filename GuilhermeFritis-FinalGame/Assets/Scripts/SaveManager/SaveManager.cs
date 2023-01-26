@@ -32,7 +32,11 @@ namespace Save
         {
             _saveSetup = new SaveSetup{
                 lastLevel = 1,
-                playerName = "Gui"
+                playerName = "Gui",
+                checkpoint = 0,
+                coins = 0,
+                lifePack = 0,
+                clothing = Clothing.ClothingType.NONE
             };
         }
 
@@ -48,18 +52,22 @@ namespace Save
         {
             _saveSetup.coins = Items.ItemManager.Instance.GetItemByType(Items.ItemType.COIN).soInt.Value;
             _saveSetup.lifePack = Items.ItemManager.Instance.GetItemByType(Items.ItemType.LIFE_PACK).soInt.Value;
-            Save();
+        }
+
+        public void SaveClothing()
+        {
+            _saveSetup.clothing = Player.Instance.GetClothingType();
         }
 
         public void SaveHealth()
         {
             _saveSetup.health = Player.Instance.health.GetCurHealth();
-            Save();
         }
 
         public void SaveLastLevel(int level)
         {
             _saveSetup.lastLevel = level;
+            _saveSetup.checkpoint = 0;
             SaveItems();
             SaveHealth();
             Save();
@@ -68,6 +76,14 @@ namespace Save
         public void SaveName(string name)
         {
             _saveSetup.playerName = name;
+            Save();
+        }
+
+        public void SaveCheckpoint(int key)
+        {
+            _saveSetup.checkpoint = key;
+            SaveItems();
+            SaveHealth();
             Save();
         }
         #endregion
@@ -108,9 +124,11 @@ namespace Save
     {
         public int lastLevel;
         public string playerName;
+        public int checkpoint;
         public int coins;
         public int lifePack;
         public float health;
+        public Clothing.ClothingType clothing;
 
     }
 }
