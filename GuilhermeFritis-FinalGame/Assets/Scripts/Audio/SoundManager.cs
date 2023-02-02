@@ -45,9 +45,10 @@ namespace Sounds
 
     public enum sfxType
     {
-        TYPE_01,
-        TYPE_02,
-        TYPE_03
+        NONE,
+        COIN,
+        LIFE_PACK,
+        TREE,
     }
 
     [System.Serializable]

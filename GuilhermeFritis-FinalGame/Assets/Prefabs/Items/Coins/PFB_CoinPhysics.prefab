@@ -62,12 +62,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5893376e49f3a1438b4d4b80634cbbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxType: 1
   itemType: 0
   playerTag: Player
   collectParticleSystem: {fileID: 0}
   hideDelay: 1
   collider: {fileID: 4108980086149496973}
-  audioSorce: {fileID: 0}
   collectingMoveY: {fileID: 11400000, guid: 04ac222d8cd138a46a95310578c53c40, type: 2}
   coinFloat: {fileID: 0}
 --- !u!54 &6891272230133082650

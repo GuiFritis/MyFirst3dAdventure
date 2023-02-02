@@ -1,19 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sounds;
 
 namespace Items
 {
     public class ItemCollectableBase : MonoBehaviour
     {
+        public sfxType sfxType;
         public ItemType itemType;
         public string playerTag = "Player";
         public ParticleSystem collectParticleSystem;
         public float hideDelay = 1f;
         public Collider collider;
-        
-        [Header("Sounds")]
-        public AudioSource audioSorce;
 
         void OnValidate()
         {
@@ -36,9 +35,12 @@ namespace Items
         protected virtual void Collect(){
             Invoke(nameof(HideObject), hideDelay);
             OnCollect();
-            if(audioSorce != null){
-                audioSorce.Play();
-            }
+            PlaySFX();
+        }
+
+        private void PlaySFX()
+        {
+            SFX_Pool.Instance.Play(sfxType);
         }
 
         protected void HideObject(){        

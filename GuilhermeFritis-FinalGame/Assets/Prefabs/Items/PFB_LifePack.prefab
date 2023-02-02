@@ -59,12 +59,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22abb2f734e68f74da866cb74b69c458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxType: 2
   itemType: 1
   playerTag: Player
   collectParticleSystem: {fileID: 0}
   hideDelay: 0.2
   collider: {fileID: 6340575777059847847}
-  audioSorce: {fileID: 0}
 --- !u!1 &6575019897344925060
 GameObject:
   m_ObjectHideFlags: 0

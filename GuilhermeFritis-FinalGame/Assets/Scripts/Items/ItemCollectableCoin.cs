@@ -21,9 +21,6 @@ namespace Items
         {
             base.Collect();
             transform.DOKill();
-            if(audioSorce != null){
-                audioSorce.Play();
-            }
             collectingMoveY.DGAnimate(transform.DOMoveY(collectingMoveY.value , collectingMoveY.duration));
         }
         protected override void OnCollect()
