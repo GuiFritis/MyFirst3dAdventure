@@ -5153,6 +5153,7 @@ MonoBehaviour:
   - {fileID: 3663134674473598767, guid: 5a543cb9359fc3945809b225ef785527, type: 3}
   gunPos: {fileID: 4030235456712664470}
   gunFlash: {fileID: 4030235455432125864}
+  SFX_shoot: {fileID: 8300000, guid: 2398f947d6e08ca4ab2d7f557793730d, type: 3}
 --- !u!136 &4030235455578509283
 CapsuleCollider:
   m_ObjectHideFlags: 0

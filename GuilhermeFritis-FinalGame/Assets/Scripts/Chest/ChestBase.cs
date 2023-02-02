@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using Sounds;
 
 public class ChestBase : MonoBehaviour
 {
     public InputActionReference inputAction;
     public Animator animator;
     public ParticleSystem openVfx;
+    public sfxType sfxType = sfxType.CHEST;
     public string triggerOpen = "Open";
     public float showItemsDelay = 0.4f;
     [Header("Notification")]
@@ -38,6 +40,7 @@ public class ChestBase : MonoBehaviour
         if(notification.gameObject.activeSelf && _usable)
         {
             openVfx?.Play();
+            SFX_Pool.Instance.Play(sfxType);
             animator.SetTrigger(triggerOpen);
             _usable = false;
             HideNotification();

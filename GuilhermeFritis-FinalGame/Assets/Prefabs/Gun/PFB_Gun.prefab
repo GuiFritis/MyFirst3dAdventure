@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 276805599140906851}
   - component: {fileID: 276805599140906852}
   - component: {fileID: 276805599140906853}
+  - component: {fileID: 3849391231134454907}
   m_Layer: 0
   m_Name: PFB_Gun
   m_TagString: Untagged
@@ -114,8 +115,20 @@ MonoBehaviour:
   prefabProjectile: {fileID: 7402294000915557449, guid: d06e29c0b4cf9094c9d0cc7bbaaabbcb, type: 3}
   shootPos: {fileID: 276805599669982278}
   fireRate: 0.2
-  shootKey: 323
   projetileSpeed: 50
+--- !u!114 &3849391231134454907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276805599140906855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61292444ae86ea34ba5f0d20a2007e09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audiosClips: []
 --- !u!1 &276805599669982279
 GameObject:
   m_ObjectHideFlags: 0

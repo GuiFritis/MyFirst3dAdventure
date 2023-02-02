@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using Padrao.Core.Utils;
+using Sounds;
 
 [RequireComponent(typeof(HealthBase))]
 public class DestructableBase : MonoBehaviour
@@ -11,6 +12,7 @@ public class DestructableBase : MonoBehaviour
     public int maxDropCoinsAmount = 10;
     public GameObject coinPFB;
     public float relativeDropHeight = 2f;
+    public sfxType sfxType;
     public MeshFilter treeMeshFilter;
     public Mesh deadTreeMesh;
     
@@ -33,6 +35,7 @@ public class DestructableBase : MonoBehaviour
     private void OnHit(HealthBase hp)
     {
         hitShake.DGAnimate(transform.DOShakeScale(hitShake.duration, Vector3.up/2, Mathf.RoundToInt(hitShake.value)));
+        SFX_Pool.Instance.Play(sfxType);
         DropCoins();
     }
 

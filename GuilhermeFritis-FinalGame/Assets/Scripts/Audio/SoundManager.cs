@@ -49,6 +49,9 @@ namespace Sounds
         COIN,
         LIFE_PACK,
         TREE,
+        CHEST,
+        CHECKPOINT,
+        LIFE_RESTORED
     }
 
     [System.Serializable]

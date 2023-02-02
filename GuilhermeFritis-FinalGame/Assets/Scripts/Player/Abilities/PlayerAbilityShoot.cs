@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using Sounds;
 
 public class PlayerAbilityShoot : PlayerAbilityBase
 {
     public List<GunBase> gunBases;
     public Transform gunPos;
     public FlashColor gunFlash;
+    public AudioClip SFX_shoot;
 
     private int _curGun;
     private List<GunBase> _instantiatedGuns = new List<GunBase>();
@@ -48,6 +49,7 @@ public class PlayerAbilityShoot : PlayerAbilityBase
     private void ChangeWeapon(int index)
     {
         _instantiatedGuns[_curGun].OnShoot -= FlashGun;
+        _instantiatedGuns[_curGun].OnShoot -= PlayShootSFX;
         _instantiatedGuns[_curGun].SetActiveWeapon(false);
         if(_instantiatedGuns[_curGun] is GunShootLimit shootLimit)
         {
@@ -56,6 +58,7 @@ public class PlayerAbilityShoot : PlayerAbilityBase
         _curGun = index;
         _instantiatedGuns[_curGun].SetActiveWeapon(true);
         _instantiatedGuns[_curGun].OnShoot += FlashGun;
+        _instantiatedGuns[_curGun].OnShoot += PlayShootSFX;
     }
 
     private void RotateWeapon(float value)
@@ -80,5 +83,10 @@ public class PlayerAbilityShoot : PlayerAbilityBase
         {
             gunFlash.Flash();
         }
+    }
+
+    private void PlayShootSFX()
+    {
+        SFX_Pool.Instance.Play(SFX_shoot);
     }
 }

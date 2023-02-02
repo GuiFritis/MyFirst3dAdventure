@@ -3,6 +3,7 @@ using DG.Tweening;
 using Animation;
 using NaughtyAttributes;
 using System;
+using Sounds;
 
 namespace Enemy
 {
@@ -10,6 +11,7 @@ namespace Enemy
     {
         public Collider collider;
         public FlashColor flashColor;
+        public AudioClip hit_SFX;
         public ParticleSystem hit_VFX;
         public ParticleSystem death_VFX;
         public float baseHealth = 10f;
@@ -115,6 +117,10 @@ namespace Enemy
             if(hit_VFX != null)
             {
                 hit_VFX.Emit(10);
+            }
+            if(hit_SFX != null)
+            {
+                SFX_Pool.Instance.Play(hit_SFX);
             }
 
             _curHealth -= damage;

@@ -17,7 +17,7 @@ namespace Boss{
     }
 
     [RequireComponent(typeof(HealthBase))]
-    public class BossBase : MonoBehaviour, IWakeableEnemy
+    public class BossBase : MonoBehaviour//, IWakeableEnemy
     {
         [Header("Animation")]
         public float startAnimDuration = .5f;
@@ -70,6 +70,7 @@ namespace Boss{
 
         private void BossDeath(HealthBase hb)
         {
+            Debug.Log("Boss died");
             SwitchState(BossAction.DEATH);
             OnKill?.Invoke(this);
         }

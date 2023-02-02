@@ -44,6 +44,7 @@ public class HealthBase : MonoBehaviour, IDamageable
         OnDamage?.Invoke(this);
         if(_curHealth <= 0 && !dead)
         {
+            Debug.Log("Morreu");
             Death();
         }
     }

@@ -9,6 +9,7 @@ using Boss;
 public class EnemyStarter : MonoBehaviour
 {
     public List<IWakeableEnemy> enemies = new List<IWakeableEnemy>();
+    public List<BossBase> bosses = new List<BossBase>();
     public string playerTag = "Player";
     [Header("Events")]
     public UnityEvent OnAllEnemiesKilled;
@@ -21,11 +22,8 @@ public class EnemyStarter : MonoBehaviour
         {
             item.OnKill += KillEnemy;
         }
-        var bosses = gameObject.GetComponentsInChildren<Boss.BossBase>().ToList();
-        foreach (var item in bosses)
-        {
-            item.OnKill += KillBoss;
-        }
+
+        bosses = gameObject.GetComponentsInChildren<BossBase>().ToList();
     }
 
     public void WakeEnemies(GameObject player)
@@ -37,21 +35,16 @@ public class EnemyStarter : MonoBehaviour
                 item.WakeUp(player);
             }
         }
+
+        foreach (var item in bosses)
+        {
+            item.WakeUp(player);
+        }
     }
 
     private void KillEnemy(EnemyBase enemy)
     {
         enemies.Remove((IWakeableEnemy) enemy);
-        if(enemies.Count == 0)
-        {
-            OnAllEnemiesKilled?.Invoke();
-            Destroy(gameObject, 2f);
-        }
-    }
-
-    private void KillBoss(BossBase boss)
-    {
-        enemies.Remove((IWakeableEnemy) boss);
         if(enemies.Count == 0)
         {
             OnAllEnemiesKilled?.Invoke();

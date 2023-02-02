@@ -57,10 +57,7 @@ public class CheckpointBase : MonoBehaviour
 
     private void SaveCheckpoint()
     {
-        // if(PlayerPrefs.GetInt(_checkpointKey, 0) < key)
-        // {
-        //     PlayerPrefs.SetInt(_checkpointKey, key);
-        // }
+        Sounds.SFX_Pool.Instance.Play(Sounds.sfxType.CHECKPOINT);
         CheckpointManager.Instance.SaveCheckpoint(key);
         _isCheckpointActive = true;
         StartCoroutine(CheckpointCooldown());

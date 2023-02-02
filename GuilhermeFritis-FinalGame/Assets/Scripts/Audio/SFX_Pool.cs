@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Sounds
@@ -43,6 +44,11 @@ namespace Sounds
                 item.clip = clip;
                 item.Play();
             }
+        }
+
+        protected override bool CheckItem(AudioSource item)
+        {
+            return !item.isPlaying;
         }
     }
 }

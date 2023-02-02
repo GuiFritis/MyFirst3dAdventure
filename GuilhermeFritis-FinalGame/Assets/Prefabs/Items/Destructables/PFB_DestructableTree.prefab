@@ -70,6 +70,7 @@ MonoBehaviour:
   maxDropCoinsAmount: 4
   coinPFB: {fileID: 8508155078886903625, guid: dc648e36ffec82b4f850ac51756eb867, type: 3}
   relativeDropHeight: 5.36
+  sfxType: 3
   treeMeshFilter: {fileID: 4386554182296933347}
   deadTreeMesh: {fileID: 4300000, guid: 62ef2651489b52541b4c69d5088bcec4, type: 3}
 --- !u!136 &908397313412740023

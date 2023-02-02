@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collider: {fileID: 8713999728386451460}
   flashColor: {fileID: 8713999728386451464}
+  hit_SFX: {fileID: 8300000, guid: 07c12bb7ff44e9b4cb427eb9d1949b26, type: 3}
   hit_VFX: {fileID: 4005735971888675510}
   death_VFX: {fileID: 5886367823549812473}
   baseHealth: 10

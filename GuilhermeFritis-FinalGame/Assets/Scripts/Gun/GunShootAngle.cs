@@ -26,6 +26,7 @@ public class GunShootAngle : GunShootLimit
                 mult++;
             }
         }
+        OnShoot?.Invoke();
     }
 
     private bool CheckAmountPerShotValue(int amount)

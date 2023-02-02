@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,19 +9,12 @@ public abstract class PoolBase<T> : MonoBehaviour where T : Behaviour
 {
     public int preWarmSize = 2;
     public bool finite = false;
-    [ShowIf("maxSize")]
+    [ShowIf("finite")]
     public int maxPoolSize = 1000;
-    [Tooltip("Object are created with name [poolName]_item")]
-    public string poolName = "Obj";
     public T PFB_item;
 
-    private List<T> _pool = new List<T>();
-    private int _currentIndex;
-
-    void OnValidate()
-    {
-        poolName = name;
-    }
+    protected List<T> _pool = new List<T>();
+    protected int _currentIndex;
 
     protected abstract void Singleton();
 
@@ -68,7 +62,7 @@ public abstract class PoolBase<T> : MonoBehaviour where T : Behaviour
         }
         else
         {
-            item = _pool.Find(i => i.gameObject.activeInHierarchy);
+            item = _pool.Find(CheckItem);
             if(item == null)
             {
                 CreatePoolItem();
@@ -78,8 +72,8 @@ public abstract class PoolBase<T> : MonoBehaviour where T : Behaviour
         return item;
     }
 
-    public virtual void UseItem()
+    protected virtual bool CheckItem(T item)
     {
-
+        return item.gameObject.activeInHierarchy;
     }
 }

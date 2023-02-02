@@ -1,10 +1,12 @@
 using Items;
 using UnityEngine;
+using Sounds;
 
 namespace Actions{
     public class ActionLifePack : ActionBase
     {
         public SOInt soInt;
+        public sfxType sfxType = sfxType.LIFE_RESTORED;
 
         void Start()
         {
@@ -24,6 +26,7 @@ namespace Actions{
             {
                 ItemManager.Instance.RemoveByType(ItemType.LIFE_PACK);
                 Player.Instance.health.ResetLife();
+                SFX_Pool.Instance.Play(sfxType);
             }
         }
     }
