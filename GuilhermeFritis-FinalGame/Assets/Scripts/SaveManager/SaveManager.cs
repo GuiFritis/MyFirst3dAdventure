@@ -36,8 +36,13 @@ namespace Save
                 checkpoint = 0,
                 coins = 0,
                 lifePack = 0,
-                clothing = Clothing.ClothingType.NONE
+                clothing = Clothing.ClothingType.NONE,
+                health = 50f
             };
+            if(Player.Instance != null)
+            {
+                _saveSetup.health = Player.Instance.health.baseHealth;
+            }
         }
 
         #region SAVE

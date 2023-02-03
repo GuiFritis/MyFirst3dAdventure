@@ -43,7 +43,10 @@ public class GameManager : Singleton<GameManager>
         stateMachine.SwitchState(GameState.INTRO);
 
         SceneSetup();
-        SetInputs();
+        if(_inputs == null)
+        {
+            SetInputs();
+        }
     }
 
     private void SceneSetup()
