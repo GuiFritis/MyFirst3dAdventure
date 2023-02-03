@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Save;
+using Sounds;
 
 public class EndGame : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class EndGame : MonoBehaviour
     // public GameObject uiEndGame;
     // public GameObject uiInGame;
     public List<GameObject> endGameObjects = new List<GameObject>();
-    public AudioSource winSFX;
+    public AudioClip winSFX;
     public int currentLevel = 1;
 
     private bool _endGame = false;
@@ -43,12 +44,18 @@ public class EndGame : MonoBehaviour
         PlayWinSFX();
         // uiEndGame.SetActive(true);
         // uiInGame.SetActive(false);
-        PauseManager.Instance.Pause();
+        Player.Instance.Pause();
+        Invoke(nameof(BackToMenu), 3f);
+    }
+
+    private void BackToMenu()
+    {
+        LoadScene.Load(0);
     }
 
     private void PlayWinSFX(){
         if(winSFX != null){
-            winSFX.Play();
+            SFX_Pool.Instance.Play(winSFX);
         }
     }
 }

@@ -54,6 +54,7 @@ public class Player : Singleton<Player>
     private bool _grounded = true;
     private float _vSpeed = 0f;
     private float _jumpForceMultiplier = 1f;
+    private bool _paused = false;
 
     #region LIFE
     private void TakeDamage(HealthBase hp)
@@ -115,12 +116,15 @@ public class Player : Singleton<Player>
 
     void Update()
     {
-        CheckMove();
-        CheckJump();
-        Rotate();
-        _vSpeed -= gravity * Time.deltaTime;
-        _directionVector.y = _vSpeed;
-        Move();
+        if(!_paused)
+        {
+            CheckMove();
+            CheckJump();
+            Rotate();
+            _vSpeed -= gravity * Time.deltaTime;
+            _directionVector.y = _vSpeed;
+            Move();
+        }
     }
 
     public void Init(){
@@ -257,5 +261,17 @@ public class Player : Singleton<Player>
     {
         return _clothChanger.GetClothingType();
     }
+
+    #region PAUSE
+    public void Pause()
+    {
+        _paused = true;
+    }
+
+    public void Unpause()
+    {
+        _paused = false;
+    }
+    #endregion
 
 }

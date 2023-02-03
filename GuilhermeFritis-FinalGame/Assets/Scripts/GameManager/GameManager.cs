@@ -4,6 +4,7 @@ using UnityEngine;
 using Padrao.Core.Singleton;
 using Padrao.StateMachine;
 using Save;
+using Screens;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -17,6 +18,8 @@ public class GameManager : Singleton<GameManager>
 
     public StateMachine<GameState> stateMachine;
     public Player player;
+
+    private Inputs _inputs;
 
     void Start()
     {
@@ -40,11 +43,48 @@ public class GameManager : Singleton<GameManager>
         stateMachine.SwitchState(GameState.INTRO);
 
         SceneSetup();
+        SetInputs();
     }
 
     private void SceneSetup()
     {
         SaveManager.Instance.Load();
+    }
+
+    private void SetInputs()
+    {   
+        _inputs = new Inputs();
+        _inputs.Enable();
+
+        _inputs.Gameplay.Esc.started += ctx => CallMenu();
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        player.Pause();
+    }
+
+    private void CallMenu()
+    {
+        if(Time.timeScale == 0)
+        {
+            UnpauseGame();
+        }
+        else
+        {
+            //pause
+            PauseGame();
+            ScreenController.Instance.ShowScreen(GameplayScreenType.MENU, true);
+        }
+    }
+
+    public void UnpauseGame()
+    {
+        //unpause
+        Time.timeScale = 1;
+        player.Unpause();
+        ScreenController.Instance.ShowScreen(GameplayScreenType.MENU, false);
     }
 
 }

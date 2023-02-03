@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class LoadScene : MonoBehaviour
 {
-    public void Load(int i){
+    public static void Load(int i){
         SceneManager.LoadScene(i);
     }
 
-    public void Load(string s){
+    public static void Load(string s){
         SceneManager.LoadScene(s);
     }
 }

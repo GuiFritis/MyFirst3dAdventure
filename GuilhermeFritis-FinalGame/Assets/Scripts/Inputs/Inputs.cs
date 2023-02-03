@@ -89,6 +89,15 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Esc"",
+                    ""type"": ""Button"",
+                    ""id"": ""2c7b7fb5-0728-4bb1-b4fa-fad2960b342a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -179,6 +188,17 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""action"": ""ControlCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2a129532-7b7f-4e48-9669-9dbcd3e18355"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Esc"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -194,6 +214,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         m_Gameplay_LifePack = m_Gameplay.FindAction("LifePack", throwIfNotFound: true);
         m_Gameplay_Use = m_Gameplay.FindAction("Use", throwIfNotFound: true);
         m_Gameplay_ControlCamera = m_Gameplay.FindAction("ControlCamera", throwIfNotFound: true);
+        m_Gameplay_Esc = m_Gameplay.FindAction("Esc", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -260,6 +281,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_LifePack;
     private readonly InputAction m_Gameplay_Use;
     private readonly InputAction m_Gameplay_ControlCamera;
+    private readonly InputAction m_Gameplay_Esc;
     public struct GameplayActions
     {
         private @Inputs m_Wrapper;
@@ -271,6 +293,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         public InputAction @LifePack => m_Wrapper.m_Gameplay_LifePack;
         public InputAction @Use => m_Wrapper.m_Gameplay_Use;
         public InputAction @ControlCamera => m_Wrapper.m_Gameplay_ControlCamera;
+        public InputAction @Esc => m_Wrapper.m_Gameplay_Esc;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -301,6 +324,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @ControlCamera.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnControlCamera;
                 @ControlCamera.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnControlCamera;
                 @ControlCamera.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnControlCamera;
+                @Esc.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEsc;
+                @Esc.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEsc;
+                @Esc.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnEsc;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -326,6 +352,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @ControlCamera.started += instance.OnControlCamera;
                 @ControlCamera.performed += instance.OnControlCamera;
                 @ControlCamera.canceled += instance.OnControlCamera;
+                @Esc.started += instance.OnEsc;
+                @Esc.performed += instance.OnEsc;
+                @Esc.canceled += instance.OnEsc;
             }
         }
     }
@@ -339,5 +368,6 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         void OnLifePack(InputAction.CallbackContext context);
         void OnUse(InputAction.CallbackContext context);
         void OnControlCamera(InputAction.CallbackContext context);
+        void OnEsc(InputAction.CallbackContext context);
     }
 }
