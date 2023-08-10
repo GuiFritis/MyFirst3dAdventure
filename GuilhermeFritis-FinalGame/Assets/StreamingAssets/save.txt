@@ -1,1 +1,1 @@
-{"lastLevel":1,"playerName":"Gui","checkpoint":0,"coins":32,"lifePack":3,"health":50.0,"clothing":0}
+{"lastLevel":1,"playerName":"Gui","checkpoint":1,"coins":32,"lifePack":3,"health":0.0,"clothing":0}
